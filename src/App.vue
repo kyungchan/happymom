@@ -65,7 +65,7 @@
             <v-divider></v-divider>
 
             <v-list dense>
-                <v-list-item link to="/about">
+                <v-list-item link to="/survey">
                     <v-list-item-content>
                         <v-list-item-title
                             v-html="$t('menu1')"
@@ -121,10 +121,6 @@ export default Vue.extend({
         locales: [
             { title: "한국어", locale: "ko" },
             { title: "tiếng Việt", locale: "vn" }
-        ],
-        drawerItems: [
-            { title: i18n.t("menu1"), url: "/" },
-            { title: i18n.t("menu2"), url: "/about" }
         ],
         drawer: false
     })
