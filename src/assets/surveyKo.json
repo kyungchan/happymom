@@ -1,0 +1,298 @@
+{
+    "locale": "ko",
+    "pages": [{
+            "name": "page1",
+            "elements": [{
+                "type": "matrix",
+                "name": "question1",
+                "title": "귀하의 한국어 실력은 어느 정도입니까?",
+                "isRequired": true,
+                "columns": [{
+                        "value": "1",
+                        "text": "전혀못함"
+                    },
+                    {
+                        "value": "2",
+                        "text": "잘 못함"
+                    },
+                    {
+                        "value": "3",
+                        "text": "보통"
+                    },
+                    {
+                        "value": "4",
+                        "text": "잘함"
+                    },
+                    {
+                        "value": "5",
+                        "text": "매우잘함"
+                    }
+                ],
+                "rows": [{
+                        "value": "talk",
+                        "text": "말하기"
+                    },
+                    {
+                        "value": "listen",
+                        "text": "듣기"
+                    },
+                    {
+                        "value": "read",
+                        "text": "읽기"
+                    },
+                    {
+                        "value": "write",
+                        "text": "쓰기"
+                    }
+                ]
+            }],
+            "title": "대상자 선별",
+            "description": "한국어 능력 측정후 평균평정 3점이상인 보통인 대상자만 중재하도록 하겠습니다."
+        },
+        {
+            "name": "page2",
+            "elements": [{
+                    "type": "multipletext",
+                    "name": "question2",
+                    "title": "귀하와 남편의 만 나이는?",
+                    "isRequired": true,
+                    "items": [{
+                            "name": "my",
+                            "title": "귀하의 연령"
+                        },
+                        {
+                            "name": "husb",
+                            "title": "남편의 연령"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "name": "question3",
+                    "title": "귀하의 입국 전 국적은?",
+                    "isRequired": true
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question4",
+                    "title": "귀하가 한국에 거주(생활) 하신 기간은?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "6개월 미만"
+                        },
+                        {
+                            "value": "2",
+                            "text": "6개월 이상 ~ 1년 미만"
+                        },
+                        {
+                            "value": "3",
+                            "text": "1년 이상 ~ 3년 미만"
+                        },
+                        {
+                            "value": "4",
+                            "text": "3년 이상 ~ 5년 미만"
+                        },
+                        {
+                            "value": "5",
+                            "text": "5년 이상 ~ 6년 미만"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question5",
+                    "title": "귀하의 교육정도는?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "무학"
+                        },
+                        {
+                            "value": "2",
+                            "text": "초졸"
+                        },
+                        {
+                            "value": "3",
+                            "text": "중종"
+                        },
+                        {
+                            "value": "4",
+                            "text": "고졸"
+                        },
+                        {
+                            "value": "5",
+                            "text": "대졸이상"
+                        }
+                    ]
+                },
+                {
+                    "type": "boolean",
+                    "name": "question6",
+                    "title": "현재 배우자와 살고 있습니까?",
+                    "isRequired": true,
+                    "labelTrue": "예",
+                    "labelFalse": "아니오"
+                },
+                {
+                    "type": "boolean",
+                    "name": "question7",
+                    "title": "어머님은 직업을 가지고 있습니까?",
+                    "isRequired": true,
+                    "labelTrue": "있다",
+                    "labelFalse": "없다"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question8",
+                    "title": "귀하의 배우자의 직업은?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "생산직, 단순 노동직"
+                        },
+                        {
+                            "value": "2",
+                            "text": "상업 숙련기술직"
+                        },
+                        {
+                            "value": "3",
+                            "text": "일반 사무직(회사원, 공무원, 교사) "
+                        },
+                        {
+                            "value": "4",
+                            "text": "자영업"
+                        },
+                        {
+                            "value": "5",
+                            "text": "농축산업, 어업"
+                        },
+                        {
+                            "value": "6",
+                            "text": "기타"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question9",
+                    "title": "귀하 가정의 월 평균수입은 어느 정도 입니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "100만원 미만"
+                        },
+                        {
+                            "value": "2",
+                            "text": "100만원 이상 ~ 150만원 미만"
+                        },
+                        {
+                            "value": "3",
+                            "text": "150만원 이상 ~ 200만원 미만"
+                        },
+                        {
+                            "value": "4",
+                            "text": "200만원 이상"
+                        },
+                        {
+                            "value": "5",
+                            "text": "모름"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question10",
+                    "title": "귀하는 배우자와의 관계에 얼마나 만족하십니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "매우 만족한다."
+                        },
+                        {
+                            "value": "2",
+                            "text": "약간 만족한다."
+                        },
+                        {
+                            "value": "3",
+                            "text": "보통이다."
+                        },
+                        {
+                            "value": "4",
+                            "text": "별로 만족하지 못한다."
+                        },
+                        {
+                            "value": "5",
+                            "text": "전혀 만족하지 못한다."
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question11",
+                    "title": "귀하는 배우자와 하루 평균 얼마나 대화를 합니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "전혀 대화하지 않는다."
+                        },
+                        {
+                            "value": "2",
+                            "text": "30분 미만"
+                        },
+                        {
+                            "value": "3",
+                            "text": "30분-1시간 미만"
+                        },
+                        {
+                            "value": "4",
+                            "text": "1-2시간 미만"
+                        },
+                        {
+                            "value": "5",
+                            "text": "2시간 이상"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question12",
+                    "title": "귀하는 지난 1년동안 지속적으로 2주 이상 일상생활이 어려울 정도로 슬프거나 절망감을  느꼈습니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "그런 적 없다."
+                        },
+                        {
+                            "value": "2",
+                            "text": "가끔 느꼈다."
+                        },
+                        {
+                            "value": "3",
+                            "text": "자주 느꼈다."
+                        },
+                        {
+                            "value": "4",
+                            "text": "매우 자주 느꼈다."
+                        }
+                    ]
+                }
+            ],
+            "title": "신분확인"
+        }
+    ],
+    "showPageNumbers": true,
+    "showProgressBar": "top",
+    "startSurveyText": {
+        "ko": "설문시작"
+    },
+    "pagePrevText": {
+        "ko": "이전"
+    },
+    "pageNextText": {
+        "ko": "다음"
+    },
+    "completeText": {
+        "ko": "완료"
+    }
+}

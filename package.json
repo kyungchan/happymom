@@ -3,14 +3,22 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start": "cd ./backend && pm2 npm start",
+        "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
     },
     "dependencies": {
+        "@types/nprogress": "^0.2.0",
+        "bootstrap": "^4.4.1",
         "core-js": "^3.4.4",
+        "nprogress": "^0.2.0",
         "path": "^0.12.7",
+        "survey-creator": "^1.5.5",
+        "survey-knockout": "^1.5.5",
+        "survey-pdf": "^1.5.5",
+        "survey-vue": "^1.5.5",
+        "surveyjs-widgets": "^1.5.5",
         "vue": "^2.6.10",
         "vue-class-component": "^7.0.2",
         "vue-i18n": "^8.0.0",
