@@ -38,14 +38,14 @@
       <router-link to="/signin">
         <v-btn text>
           <v-icon>mdi-login</v-icon>
-          <span v-html="$t('auth-signin')"></span>
+          <span class="hidden-sm-and-down" v-html="$t('auth-signin')"></span>
         </v-btn>
       </router-link>
       <v-menu>
         <template v-slot:activator="{ on }">
           <v-btn v-on="on" text>
             <v-icon>mdi-translate</v-icon>
-            <span>{{ locale }}</span>
+            <span class="hidden-sm-and-down">{{ locale }}</span>
             <v-icon>mdi-menu-down</v-icon>
           </v-btn>
         </template>

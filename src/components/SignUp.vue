@@ -4,6 +4,7 @@
       <v-col cols="12" sm="10" md="8" lg="6">
         <v-card>
           <v-form id="signin" ref="signup" v-model="valid">
+            <div class="display-1 text-center" v-html="$t('auth-signup')"></div>
             <v-text-field
               :label="$t('auth-id')"
               v-model="user.id"
@@ -46,7 +47,13 @@
             ></v-text-field>
           </v-form>
           <v-card-actions>
-            <v-btn @click="submit" class="btn-lg" color="primary" v-html="$t('auth-signup')"></v-btn>
+            <v-btn
+              @click="submit"
+              class="btn-lg"
+              color="deep-purple accent-4"
+              v-html="$t('auth-signup')"
+              dark
+            ></v-btn>
             <br />
           </v-card-actions>
         </v-card>

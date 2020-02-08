@@ -1,4 +1,6 @@
 {
     "menu1": "Đo ứng suất",
-    "menu2": "Quản lý căng thẳng"
+    "menu2": "Quản lý căng thẳng",
+    "auth-signin": "Đăng nhập",
+    "auth-signup": "Đăng ký"
 }
