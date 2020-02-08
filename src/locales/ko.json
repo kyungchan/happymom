@@ -1,4 +1,22 @@
 {
     "menu1": "스트레스 측정",
-    "menu2": "스트레스 관리"
+    "menu2": "스트레스 관리",
+    "menu3": "임신시 불편감 관리 교육",
+    "menu4": "음악요법",
+    "menu5": "심상요법",
+    "auth-signin": "로그인",
+    "auth-signup": "회원가입",
+    "auth-id": "아이디",
+    "auth-pass": "비밀번호",
+    "auth-pass-conf": "비밀번호 확인",
+    "auth-name": "이름",
+    "auth-email": "이메일",
+    "auth-err-required": "해당 항목을 입력해주세요.",
+    "auth-err-invail": "ID 및 Password가 올바르지 않습니다.",
+    "auth-err-pass-least": "8글자 이상 입력하세요.",
+    "auth-err-pass-conf": "비밀번호가 일치하지 않습니다.",
+    "auth-err-id-least": "6글자 이상 입력하세요.",
+    "auth-err-email-conf": "이메일이 올바르지 않습니다.",
+    "auth-err-name-conf": "10글자 이하로 입력하세요.",
+    "auth-err-id": "이미 존재하는 ID입니다."
 }
