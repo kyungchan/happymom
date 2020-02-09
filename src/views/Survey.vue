@@ -1,10 +1,12 @@
 <template>
+  <v-container fluid>
     <div class="Survey">
-        <survey :survey="survey"></survey>
-        <!-- If you want to hide Survey PDF, comment the lines below 
+      <survey :survey="survey"></survey>
+      <!-- If you want to hide Survey PDF, comment the lines below 
         <h2>Survey PDF:</h2>
-        <button v-on:click="savePDF">Save PDF</button>-->
+      <button v-on:click="savePDF">Save PDF</button>-->
     </div>
+  </v-container>
 </template>
 
 <script>
@@ -19,21 +21,21 @@ Survey.cssType = "bootstrap";
 import * as widgets from "surveyjs-widgets";
 
 export default {
-    name: "app",
-    components: {
-        Survey
-    },
-    data() {
-        var model = new SurveyVue.Model(surveyJSON);
-        var savePDF = function() {
-            var surveyPDF = new SurveyPDF.SurveyPDF(surveyJSON);
-            surveyPDF.data = model.data;
-            surveyPDF.save();
-        };
-        return {
-            survey: model,
-            savePDF: savePDF
-        };
-    }
+  name: "app",
+  components: {
+    Survey
+  },
+  data() {
+    var model = new SurveyVue.Model(surveyJSON);
+    var savePDF = function() {
+      var surveyPDF = new SurveyPDF.SurveyPDF(surveyJSON);
+      surveyPDF.data = model.data;
+      surveyPDF.save();
+    };
+    return {
+      survey: model,
+      savePDF: savePDF
+    };
+  }
 };
 </script>

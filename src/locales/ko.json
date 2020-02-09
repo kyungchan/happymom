@@ -16,7 +16,9 @@
     "auth-err-pass-least": "8글자 이상 입력하세요.",
     "auth-err-pass-conf": "비밀번호가 일치하지 않습니다.",
     "auth-err-id-least": "6글자 이상 입력하세요.",
+    "auth-err-id-exist": "이미 존재하는 ID입니다.",
     "auth-err-email-conf": "이메일이 올바르지 않습니다.",
     "auth-err-name-conf": "10글자 이하로 입력하세요.",
-    "auth-err-id": "이미 존재하는 ID입니다."
+    "auth-err-id": "이미 존재하는 ID입니다.",
+    "auth-ok-signup": "회원가입에 성공했습니다."
 }

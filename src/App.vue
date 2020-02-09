@@ -73,7 +73,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-divider></v-divider>
+      <v-divider id="drawer-divider"></v-divider>
 
       <v-list dense>
         <v-list-item link to="/survey">
@@ -109,15 +109,16 @@
     </v-navigation-drawer>
 
     <v-content>
-      <v-container fluid>
-        <transition name="fade" mode="out-in">
-          <router-view></router-view>
-        </transition>
-      </v-container>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </v-content>
   </v-app>
 </template>
-<style>
+<style scoped>
+#drawer-divider {
+  margin: 0;
+}
 a {
   text-decoration: none;
 }
