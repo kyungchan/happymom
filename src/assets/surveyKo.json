@@ -44,7 +44,8 @@
                         "value": "write",
                         "text": "쓰기"
                     }
-                ]
+                ],
+                "isAllRowRequired": true
             }],
             "title": "대상자 선별",
             "description": "한국어 능력 측정후 평균평정 3점이상인 보통인 대상자만 중재하도록 하겠습니다."
@@ -129,18 +130,24 @@
                 {
                     "type": "boolean",
                     "name": "question6",
+                    "useDisplayValuesInTitle": false,
                     "title": "현재 배우자와 살고 있습니까?",
                     "isRequired": true,
                     "labelTrue": "예",
-                    "labelFalse": "아니오"
+                    "labelFalse": "아니오",
+                    "valueTrue": "1",
+                    "valueFalse": "0"
                 },
                 {
                     "type": "boolean",
                     "name": "question7",
+                    "useDisplayValuesInTitle": false,
                     "title": "어머님은 직업을 가지고 있습니까?",
                     "isRequired": true,
                     "labelTrue": "있다",
-                    "labelFalse": "없다"
+                    "labelFalse": "없다",
+                    "valueTrue": "1",
+                    "valueFalse": "0"
                 },
                 {
                     "type": "radiogroup",
@@ -279,6 +286,387 @@
                 }
             ],
             "title": "신분확인"
+        },
+        {
+            "name": "page3",
+            "elements": [{
+                    "type": "boolean",
+                    "name": "question13",
+                    "useDisplayValuesInTitle": false,
+                    "title": {
+                        "ko": "귀하의 유산 경험은 있습니까?"
+                    },
+                    "isRequired": true,
+                    "labelTrue": {
+                        "default": "Yes",
+                        "ko": "있다."
+                    },
+                    "labelFalse": {
+                        "default": "No",
+                        "ko": "없다."
+                    },
+                    "valueTrue": "1",
+                    "valueFalse": "0"
+                },
+                {
+                    "type": "text",
+                    "name": "question14",
+                    "title": {
+                        "ko": "임신주수?"
+                    },
+                    "isRequired": true
+                },
+                {
+                    "type": "text",
+                    "name": "question15",
+                    "title": {
+                        "ko": "현재의 임신은 몇 번째 임신 입니까?"
+                    },
+                    "isRequired": true
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question16",
+                    "title": {
+                        "ko": "임신 희망 여부는?"
+                    },
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "item1",
+                            "text": {
+                                "ko": "원했던 임신"
+                            }
+                        },
+                        {
+                            "value": "item2",
+                            "text": {
+                                "ko": "원하지 않은 임신"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "title": {
+                "ko": "산과적 특성"
+            },
+            "description": {
+                "ko": "해당되는 곳에 표시하시거나 응답해주세요."
+            }
+        },
+        {
+            "name": "page4",
+            "elements": [{
+                "type": "matrix",
+                "name": "question17",
+                "title": {
+                    "ko": "당신의 평소 생각을 떠올려 보시고, 가장 비슷한 상태 하나를 골라 선택해주시기 바랍니다."
+                },
+                "isRequired": true,
+                "columns": [{
+                        "value": "1",
+                        "text": {
+                            "ko": "전혀 그렇지 않다."
+                        }
+                    },
+                    {
+                        "value": "2",
+                        "text": {
+                            "ko": "대체로 그렇지 않다."
+                        }
+                    },
+                    {
+                        "value": "3",
+                        "text": {
+                            "ko": "대체로 그렇다."
+                        }
+                    },
+                    {
+                        "value": "4",
+                        "text": {
+                            "ko": "항상 그렇다."
+                        }
+                    }
+                ],
+                "rows": [{
+                        "value": "1",
+                        "text": {
+                            "ko": "다른 사람들만큼 가치가 있다."
+                        }
+                    },
+                    {
+                        "value": "2",
+                        "text": {
+                            "ko": "나는 좋은 성품을 가졌다."
+                        }
+                    },
+                    {
+                        "value": "3",
+                        "text": {
+                            "ko": "실패한 사람이라는 느낌을 갖는다."
+                        }
+                    },
+                    {
+                        "value": "4",
+                        "text": {
+                            "ko": "다른 사람들만큼은 일을 잘 할 수가 있다."
+                        }
+                    },
+                    {
+                        "value": "5",
+                        "text": {
+                            "ko": "자랑할 것이 없다."
+                        }
+                    },
+                    {
+                        "value": "6",
+                        "text": {
+                            "ko": " 자신에 대해 긍정적인 태도를 갖고 있다."
+                        }
+                    },
+                    {
+                        "value": "7",
+                        "text": {
+                            "ko": " 내 자신에 대해 만족한다."
+                        }
+                    },
+                    {
+                        "value": "8",
+                        "text": {
+                            "ko": " 내 자신을 좀 더 존경할 수 있으면 좋겠다."
+                        }
+                    },
+                    {
+                        "value": "9",
+                        "text": {
+                            "ko": " 나는 가끔 내 자신이 쓸모없는 사람이라는 느낌이 든다."
+                        }
+                    },
+                    {
+                        "value": "10",
+                        "text": {
+                            "ko": " 나는 때때로 내가 좋지 않은 사람이라고 생각한다."
+                        }
+                    },
+                    {
+                        "value": "11",
+                        "text": {
+                            "ko": " 나를 통제해 줄 사람이 필요하다."
+                        }
+                    }
+                ],
+                "isAllRowRequired": true
+            }],
+            "title": {
+                "ko": "임신스트레스 도구"
+            }
+        },
+        {
+            "name": "page5",
+            "elements": [{
+                "type": "matrix",
+                "name": "question18",
+                "title": {
+                    "ko": "아래의 문항을 읽고, 지금 남편과의 관계에 대해 생각하시는 것과 일치하는 곳에  선택해주시기  바랍니다."
+                },
+                "isRequired": true,
+                "columns": [{
+                        "value": "1",
+                        "text": {
+                            "ko": "전혀 그렇지 않다"
+                        }
+                    },
+                    {
+                        "value": "2",
+                        "text": {
+                            "ko": "별로 그렇지 않다"
+                        }
+                    },
+                    {
+                        "value": "3",
+                        "text": {
+                            "ko": "보통이다"
+                        }
+                    },
+                    {
+                        "value": "4",
+                        "text": {
+                            "ko": "조금 그렇다"
+                        }
+                    },
+                    {
+                        "value": "5",
+                        "text": {
+                            "ko": "매우 그렇다"
+                        }
+                    }
+                ],
+                "rows": [{
+                        "value": "Row 1",
+                        "text": {
+                            "ko": " 남편과 나는 성적으로 표현을 자유롭게 한다."
+                        }
+                    },
+                    {
+                        "value": "Row 2",
+                        "text": {
+                            "ko": " 남편과 나는 일상 활동과 여가활동을 함께 한다."
+                        }
+                    },
+                    {
+                        "value": "Row 3",
+                        "text": {
+                            "ko": " 남편과 나는 사랑하는 감정을 서로 표현한다."
+                        }
+                    },
+                    {
+                        "value": "Row 4",
+                        "text": {
+                            "ko": " 우리 부부는 서로의 생각이나 느낌을 표현한다."
+                        }
+                    },
+                    {
+                        "value": "Row 5",
+                        "text": {
+                            "ko": " 우리 부부는 의견 차이를 대화로서 해결한다."
+                        }
+                    },
+                    {
+                        "value": "Row 6",
+                        "text": {
+                            "ko": " 우리 부부는 서로의 자존심을 존중해 준다."
+                        }
+                    },
+                    {
+                        "value": "Row 7",
+                        "text": {
+                            "ko": " 우리 부부는 친구나 가족관계를 잘 유지하고 있다."
+                        }
+                    },
+                    {
+                        "value": "Row 8",
+                        "text": {
+                            "ko": " 우리 부부의 결혼 생활은 안정되어 있다. "
+                        }
+                    }
+                ],
+                "isAllRowRequired": true
+            }],
+            "title": {
+                "ko": "남편과의 관계측정 도구"
+            }
+        },
+        {
+            "name": "page6",
+            "elements": [{
+                "type": "rating",
+                "name": "question19",
+                "title": {
+                    "ko": "현재 남편과의 요즈음 결혼 생활에 대한 귀하의 느낌을 잘 표현하고 있다고 \n  생각하는 숫자에 선택 해주시기 \n바랍니다."
+                },
+                "isRequired": true,
+                "rateMax": 7,
+                "minRateDescription": {
+                    "ko": "매우불행하다"
+                },
+                "maxRateDescription": {
+                    "ko": "매우 행복하다"
+                }
+            }],
+            "title": {
+                "ko": "결혼 만족도 측정도구"
+            }
+        },
+        {
+            "name": "page7",
+            "elements": [{
+                "type": "matrix",
+                "name": "question20",
+                "title": {
+                    "ko": " 6. 다음은 귀하께서 이번 임신 중에 주위사람들로부터 도움을 얼마나 받고 계신지에 관한 것입니다. 귀하의 의견과 일치되는 번호에 선택해주시기  바랍니다."
+                },
+                "columns": [{
+                        "value": "1",
+                        "text": {
+                            "ko": "매우 불만족"
+                        }
+                    },
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ],
+                "rows": [{
+                        "value": "1",
+                        "text": {
+                            "ko": "남편은 나의 임신경험에 동참해 준다."
+                        }
+                    },
+                    {
+                        "value": "2",
+                        "text": {
+                            "ko": " 남편은 나의 의욕을 돋구어준다."
+                        }
+                    },
+                    {
+                        "value": "3",
+                        "text": {
+                            "ko": "남편은  내가 고통스러울 때 벗어나도록 도와준다."
+                        }
+                    },
+                    {
+                        "value": "4",
+                        "text": {
+                            "ko": "남편은  나의 일상생활과 문제들에 관심을 보여준다."
+                        }
+                    },
+                    {
+                        "value": "5",
+                        "text": {
+                            "ko": "남편은  나에게 중요한 행동을 할 때 내 위주로 한다."
+                        }
+                    },
+                    {
+                        "value": "6",
+                        "text": {
+                            "ko": "남편은  나의 사적인 문제를 들어준다."
+                        }
+                    },
+                    {
+                        "value": "7",
+                        "text": {
+                            "ko": "남편은  내가 해 준것에 대해 고마움을 나에게 표현한다."
+                        }
+                    },
+                    {
+                        "value": "8",
+                        "text": {
+                            "ko": "남편은  내가 변덕을 부리더라도 참아준다."
+                        }
+                    },
+                    {
+                        "value": "9",
+                        "text": {
+                            "ko": "남편은  내가 걱정할 때에 진지하게 날 대해 준다."
+                        }
+                    },
+                    {
+                        "value": "10",
+                        "text": {
+                            "ko": "남편은  내가 상황을 분명하게 이해하도록 돕는다."
+                        }
+                    },
+                    {
+                        "value": "11",
+                        "text": {
+                            "ko": "남편은  내가 도움이 필요할 때는 옆에 있도록 힘쓴다. "
+                        }
+                    }
+                ],
+                "isAllRowRequired": true
+            }],
+            "title": {
+                "ko": "배우자지지 측정도구"
+            }
         }
     ],
     "showPageNumbers": true,

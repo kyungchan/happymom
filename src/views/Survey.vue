@@ -1,12 +1,18 @@
 <template>
-  <v-container fluid>
-    <div class="Survey">
-      <survey :survey="survey"></survey>
-      <!-- If you want to hide Survey PDF, comment the lines below 
-        <h2>Survey PDF:</h2>
-      <button v-on:click="savePDF">Save PDF</button>-->
-    </div>
-  </v-container>
+    <v-container>
+        <v-row justify="center">
+            <v-col :cols="12" :xs="12" :sm="12" :md="10" :lg="10" :xl="8">
+                <survey :survey="survey"></survey>
+                <v-textarea
+                    id="surveyResult"
+                    label="Result JSON"
+                    v-model="surveyResult"
+                    v-if="surveyCompleted"
+                    auto-grow
+                ></v-textarea>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
@@ -20,22 +26,39 @@ Survey.cssType = "bootstrap";
 
 import * as widgets from "surveyjs-widgets";
 
+var model = new SurveyVue.Model(surveyJSON);
 export default {
-  name: "app",
-  components: {
-    Survey
-  },
-  data() {
-    var model = new SurveyVue.Model(surveyJSON);
-    var savePDF = function() {
-      var surveyPDF = new SurveyPDF.SurveyPDF(surveyJSON);
-      surveyPDF.data = model.data;
-      surveyPDF.save();
-    };
-    return {
-      survey: model,
-      savePDF: savePDF
-    };
-  }
+    name: "app",
+    components: {
+        Survey
+    },
+    data() {
+        var savePDF = function() {
+            var surveyPDF = new SurveyPDF.SurveyPDF(surveyJSON);
+            surveyPDF.data = model.data;
+            surveyPDF.save();
+        };
+        return {
+            surveyCompleted: false,
+            surveyResult: "",
+            survey: model,
+            savePDF: savePDF
+        };
+    },
+    methods: {
+        complete(result) {
+            this.surveyCompleted = true;
+            this.surveyResult = JSON.stringify(result.data, null, 4);
+        }
+    },
+    mounted() {
+        model.onComplete.add(result => this.complete(result));
+    }
 };
 </script>
+
+<style>
+.container {
+    max-width: initial;
+}
+</style>

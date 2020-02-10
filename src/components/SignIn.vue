@@ -8,9 +8,8 @@
                             type="success"
                             v-if="$route.params.signup === true"
                             dense
+                            >{{ this.$t("auth-ok-signup") }}</v-alert
                         >
-                            {{ this.$t("auth-ok-signup") }}
-                        </v-alert>
 
                         <div
                             class="display-1 text-center"
@@ -38,7 +37,7 @@
                         <v-btn
                             @click="submit"
                             class="btn-lg"
-                            color="deep-purple accent-4"
+                            color="primary"
                             v-html="$t('auth-signin')"
                             dark
                         ></v-btn>
@@ -57,6 +56,7 @@
 </template>
 
 <script>
+import Axios from "axios";
 export default {
     data() {
         return {
@@ -78,8 +78,24 @@ export default {
     methods: {
         submit() {
             if (this.$refs.signin.validate()) {
-                this.snackbar = true;
+                this.signin();
             }
+        },
+        signin() {
+            Axios.post("auth/signin", this.user)
+                .then(res => {
+                    if (res.status === 200) {
+                        this.$router.push({
+                            name: "home"
+                        });
+                        alert(res.data.token);
+                    }
+                })
+                .catch(err => {
+                    if (err.response.status === 401) {
+                        alert("실패");
+                    }
+                });
         }
     }
 };

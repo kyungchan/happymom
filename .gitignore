@@ -20,3 +20,4 @@ yarn-error.log*
 *.sln
 *.sw?
 backend/secrets/
+src/assets/surveyKo copy.json

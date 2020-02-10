@@ -54,7 +54,7 @@
                         <v-btn
                             @click="submit"
                             class="btn-lg"
-                            color="deep-purple accent-4"
+                            color="primary"
                             v-html="$t('auth-signup')"
                             dark
                         ></v-btn>
@@ -115,7 +115,7 @@ export default {
             }
         },
         signup() {
-            Axios.post("api/users", this.user)
+            Axios.post("users", this.user)
                 .then(res => {
                     if (res.status === 201) {
                         this.$router.push({

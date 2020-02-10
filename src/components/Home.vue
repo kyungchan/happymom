@@ -3,28 +3,40 @@
         <div id="home-banner"></div>
         <v-container>
             <v-row>
-                <v-col :cols="12" :xs="12" :sm="4" :md="4" :lg="4">
+                <v-col
+                    :cols="12"
+                    :xs="12"
+                    :sm="6"
+                    :md="6"
+                    :lg="6"
+                    :xl="4"
+                    offset-xl="2"
+                >
                     <v-card>
-                        <v-card-title primary-title>title</v-card-title>
-                        <v-card-text
-                            >111111<br /><br /><br /><br
-                        /></v-card-text>
+                        <v-card-title primary-title>{{
+                            $t("menu1")
+                        }}</v-card-title>
+                        <v-card-text></v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn text color="primary" to="/survey">{{
+                                $t("home-start")
+                            }}</v-btn>
+                        </v-card-actions>
                     </v-card>
                 </v-col>
-                <v-col :cols="12" :xs="12" :sm="4" :md="4" :lg="4">
+                <v-col :cols="12" :xs="12" :sm="6" :md="6" :lg="6" :xl="4">
                     <v-card>
-                        <v-card-title primary-title>title</v-card-title>
-                        <v-card-text
-                            >222222<br /><br /><br /><br
-                        /></v-card-text>
-                    </v-card>
-                </v-col>
-                <v-col :cols="12" :xs="12" :sm="4" :md="4" :lg="4">
-                    <v-card>
-                        <v-card-title primary-title>title</v-card-title>
-                        <v-card-text
-                            >333333<br /><br /><br /><br
-                        /></v-card-text>
+                        <v-card-title primary-title>{{
+                            $t("menu2")
+                        }}</v-card-title>
+                        <v-card-text></v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn text color="primary">{{
+                                $t("home-start")
+                            }}</v-btn>
+                        </v-card-actions>
                     </v-card>
                 </v-col>
             </v-row>
