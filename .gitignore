@@ -21,3 +21,6 @@ yarn-error.log*
 *.sw?
 backend/secrets/
 src/assets/surveyKo copy.json
+public/music/awalk.mp3
+public/music/
+*.mp3
