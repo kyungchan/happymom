@@ -15,6 +15,7 @@
         "core-js": "^3.4.4",
         "nprogress": "^0.2.0",
         "path": "^0.12.7",
+        "pdfvuer": "^1.4.0",
         "survey-creator": "^1.5.5",
         "survey-knockout": "^1.5.5",
         "survey-pdf": "^1.5.5",

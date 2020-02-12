@@ -39,6 +39,11 @@ const routes = [
         name: "my",
         meta: { unauthorized: true },
         component: () => import("../views/My.vue")
+    },
+    {
+        path: "/info",
+        name: "info",
+        component: () => import("../views/Info.vue")
     }
 ];
 

@@ -85,6 +85,10 @@ router.post('/check', function(req, res) {
         } else {
             res.status(403);
         }
+    }).catch(err => {
+        res.send({
+            expired: true
+        })
     })
 
 });
