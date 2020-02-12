@@ -49,6 +49,11 @@ const routes = [
         path: "/music",
         name: "music",
         component: () => import("../views/Music.vue")
+    },
+    {
+        path: "/image",
+        name: "image",
+        component: () => import("../views/Gi.vue")
     }
 ];
 

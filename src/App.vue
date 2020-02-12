@@ -29,7 +29,7 @@
           <v-list-item to="/music">
             <v-list-item-title v-html="$t('menu4')"></v-list-item-title>
           </v-list-item>
-          <v-list-item>
+          <v-list-item to="/image">
             <v-list-item-title v-html="$t('menu5')"></v-list-item-title>
           </v-list-item>
         </v-list>
@@ -124,7 +124,7 @@
               <v-list-item-title v-html="$t('menu4')"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item>
+          <v-list-item to="/image">
             <v-list-item-content>
               <v-list-item-title v-html="$t('menu5')"></v-list-item-title>
             </v-list-item-content>
