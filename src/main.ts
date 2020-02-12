@@ -5,7 +5,9 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 import i18n from "./i18n";
 import axios from "axios";
+import vuecookies from "vue-cookies";
 
+Vue.use(require("vue-cookies"));
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
@@ -16,3 +18,22 @@ new Vue({
     i18n,
     render: h => h(App)
 }).$mount("#app");
+
+const token = Vue.$cookies.get("token");
+if (token) axios.defaults.headers.common.token = Vue.$cookies.get("token");
+axios.interceptors.response.use(
+    res => {
+        if (res.data.token) {
+            Vue.$cookies.set("token", res.data.token, "2m");
+            axios.defaults.headers.common.token = Vue.$cookies.get("token");
+        }
+        return Promise.resolve(res);
+    },
+    err => {
+        if (err.response.status === 401) {
+            router.push("/signin");
+            return;
+        }
+        return Promise.reject(err);
+    }
+);

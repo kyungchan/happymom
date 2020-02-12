@@ -10,6 +10,16 @@
                             dense
                             >{{ this.$t("auth-ok-signup") }}</v-alert
                         >
+                        <v-alert type="error" v-if="invaild" dense>{{
+                            this.$t("auth-err-invail")
+                        }}</v-alert>
+
+                        <v-alert
+                            type="warining"
+                            v-if="$route.params.need === true"
+                            dense
+                            >{{ this.$t("auth-err-need") }}</v-alert
+                        >
 
                         <div
                             class="display-1 text-center"
@@ -18,17 +28,15 @@
                         <v-text-field
                             :label="$t('auth-id')"
                             v-model="user.id"
-                            :rules="idRules"
                             counter
                             required
                         ></v-text-field>
                         <v-text-field
                             :label="$t('auth-pass')"
-                            v-model="user.pass"
+                            v-model="user.password"
                             :append-icon="visible ? 'mdi-eye' : 'mdi-eye-off'"
                             :type="visible ? 'text' : 'password'"
                             @click:append="visible = !visible"
-                            :rules="passRules"
                             counter
                             required
                         ></v-text-field>
@@ -57,13 +65,17 @@
 
 <script>
 import Axios from "axios";
+var env = "";
+if (process.env.NODE_ENV == "development") env = "api/";
+
 export default {
     data() {
         return {
             visible: false,
+            invaild: false,
             user: {
                 id: "",
-                pass: ""
+                password: ""
             },
             idRules: [
                 v => !!v || this.$t("auth-err-required"),
@@ -82,19 +94,21 @@ export default {
             }
         },
         signin() {
-            Axios.post("auth/signin", this.user)
+            Axios.post(env + "auth/signin", this.user)
                 .then(res => {
-                    if (res.status === 200) {
+                    if (res.status == 200) {
+                        this.$store.commit("signIn", res.data.token);
+
+                        this.$store.commit("loginCheck");
                         this.$router.push({
                             name: "home"
                         });
-                        alert(res.data.token);
                     }
                 })
                 .catch(err => {
-                    if (err.response.status === 401) {
-                        alert("실패");
-                    }
+                    this.invaild = true;
+                    this.user.id = "";
+                    this.user.password = "";
                 });
         }
     }

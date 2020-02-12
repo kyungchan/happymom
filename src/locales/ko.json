@@ -14,6 +14,7 @@
     "auth-email": "이메일",
     "auth-err-required": "해당 항목을 입력해주세요.",
     "auth-err-invail": "ID 및 Password가 올바르지 않습니다.",
+    "auth-err-need": "로그인이 필요한 서비스입니다..",
     "auth-err-pass-least": "8글자 이상 입력하세요.",
     "auth-err-pass-conf": "비밀번호가 일치하지 않습니다.",
     "auth-err-id-least": "6글자 이상 입력하세요.",

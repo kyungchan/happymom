@@ -2,10 +2,15 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import NProgress from "nprogress";
+import Store from "@/store";
 import "@/assets/nprogress.css";
 Vue.use(VueRouter);
 
 const routes = [
+    {
+        path: "*",
+        component: Home
+    },
     {
         path: "/",
         name: "home",
@@ -26,7 +31,14 @@ const routes = [
     {
         path: "/survey",
         name: "survey",
+        meta: { unauthorized: true },
         component: () => import("../views/Survey.vue")
+    },
+    {
+        path: "/my",
+        name: "my",
+        meta: { unauthorized: true },
+        component: () => import("../views/My.vue")
     }
 ];
 
@@ -39,9 +51,22 @@ const router = new VueRouter({
 NProgress.configure({ showSpinner: false });
 NProgress.configure({ easing: "ease", speed: 300 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
+    var token = Vue.$cookies.get("token");
     NProgress.start();
-    next();
+    if (token != null) {
+        Store.commit("signIn", token);
+        Store.commit("loginCheck");
+    }
+    if (to.matched.some(record => record.meta.unauthorized)) {
+        if (token != null) {
+            return next();
+        } else {
+            return next("/signin");
+        }
+    } else {
+        return next();
+    }
 });
 router.afterEach(() => {
     NProgress.done(true);

@@ -50,7 +50,8 @@
                 </v-list>
             </v-menu>
             <v-spacer></v-spacer>
-            <router-link to="/signin">
+
+            <router-link to="/signin" v-if="$store.state.token == null">
                 <v-btn text>
                     <v-icon>mdi-login</v-icon>
                     <span
@@ -59,7 +60,25 @@
                     ></span>
                 </v-btn>
             </router-link>
-            <v-menu>
+            <v-menu v-if="$store.state.token != null" offset-y>
+                <template v-slot:activator="{ on }">
+                    <v-btn v-on="on" text>
+                        <v-icon>mdi-account-circle</v-icon>
+                        <span class="hidden-sm-and-down">{{ username }}</span>
+                        <v-icon>mdi-menu-down</v-icon>
+                    </v-btn>
+                </template>
+
+                <v-list>
+                    <v-list-item to="/my">
+                        <v-list-item-title>내 정보</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item @click="signOut">
+                        <v-list-item-title>로그아웃</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+            <v-menu offset-y>
                 <template v-slot:activator="{ on }">
                     <v-btn v-on="on" text>
                         <v-icon>mdi-translate</v-icon>
@@ -69,14 +88,17 @@
                 </template>
 
                 <v-list>
-                    <v-list-item v-for="(locale, key) in locales" :key="key">
-                        <v-list-item-title
-                            @click="
-                                $i18n.locale = locale.locale;
-                                $store.commit('changeLocale', locale.title);
-                            "
-                            >{{ locale.title }}</v-list-item-title
-                        >
+                    <v-list-item
+                        v-for="(locale, key) in locales"
+                        :key="key"
+                        @click="
+                            $i18n.locale = locale.locale;
+                            $store.commit('changeLocale', locale.title);
+                        "
+                    >
+                        <v-list-item-title>{{
+                            locale.title
+                        }}</v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
@@ -173,7 +195,17 @@ import i18n from "./i18n";
 export default Vue.extend({
     name: "App",
     components: {},
+    methods: {
+        signOut() {
+            this.$store.commit("signOut");
+            Vue.$cookies.remove("token");
+            this.$router.push("/");
+        }
+    },
     computed: {
+        username() {
+            return this.$store.state.username;
+        },
         locale() {
             return this.$store.state.locale;
         }
@@ -182,6 +214,10 @@ export default Vue.extend({
         locales: [
             { title: "한국어", locale: "ko" },
             { title: "tiếng Việt", locale: "vn" }
+        ],
+        myMenu: [
+            { title: "내 정보", to: "/my" },
+            { title: "로그아웃", to: "/signout" }
         ],
         drawer: false
     })
