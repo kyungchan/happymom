@@ -25,6 +25,10 @@ export default new Vuex.Store({
         },
         signOut(state) {
             state.token = null;
+            state.userid = "";
+            state.username = "";
+            state.email = "";
+            state.role = "";
         },
         loginCheck(state) {
             axios

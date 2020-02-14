@@ -2,7 +2,29 @@
   <v-container>
     <v-row justify="center">
       <v-col :cols="12" :xs="12" :sm="12" :md="10" :lg="10" :xl="8">
-        <survey :survey="survey"></survey>
+        <transition name="fade">
+          <div v-if="nowPage == 1">
+            <v-card>
+              <v-card-title>
+                <span class="title">스트레스 측정 설문을 시작합니다.</span>
+              </v-card-title>
+              <v-card-subtitle>
+                <span class="subttle">중재 전, 중재 후 설문조사를 선택해주세요.</span>
+              </v-card-subtitle>
+              <v-card-text>
+                <v-radio-group v-model="radios" :mandatory="false">
+                  <v-radio label="중재 전" value="before"></v-radio>
+                  <v-radio label="중재 후" value="after"></v-radio>
+                </v-radio-group>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn color="primary" @click="surveyNext()">설문 시작</v-btn>
+              </v-card-actions>
+            </v-card>
+          </div>
+          <survey v-else :survey="survey"></survey>
+        </transition>
         <v-textarea
           id="surveyResult"
           label="Result JSON"
@@ -39,6 +61,8 @@ export default {
       surveyPDF.save();
     };
     return {
+      radios: "before",
+      nowPage: 1,
       surveyCompleted: false,
       surveyResult: "",
       survey: model,
@@ -49,6 +73,9 @@ export default {
     complete(result) {
       this.surveyCompleted = true;
       this.surveyResult = JSON.stringify(result.data, null, 4);
+    },
+    surveyNext() {
+      this.nowPage = this.nowPage + 1;
     }
   },
   mounted() {
@@ -58,4 +85,20 @@ export default {
 </script>
 
 <style>
+.sv_main.sv_main .table > tbody > tr > td:nth-child(1) {
+  background: #efefef;
+  font-weight: 700;
+}
+</style>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+  position: absolute;
+  width: 100%;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

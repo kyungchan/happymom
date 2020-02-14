@@ -4,8 +4,8 @@
   <v-row>
     <v-col>
       <v-card>
-        <v-card-title class="display-1">음악요법</v-card-title>
-        <v-card-text class="subtitle-1">자유롭게 감상후 느낌에 대해 간단히 이야기 하기</v-card-text>
+        <v-card-title class="display-1" v-html="$t('menu4')"></v-card-title>
+        <v-card-text class="subtitle-1" v-html="$t('menu4-subtitle')">자유롭게 감상후 느낌에 대해 간단히 이야기 하기</v-card-text>
 
         <html>
           <body>
@@ -25,8 +25,12 @@
                       >Your browser does not support HTML5 Audio! 😢</audio>
                     </div>
                     <div id="tracks">
-                      <a id="btnPrev" style="color: black">&vltri;</a>
-                      <a id="btnNext" style="color: black">&vrtri;</a>
+                      <a id="btnPrev" style="color: #666">
+                        <v-icon>mdi-skip-previous</v-icon>
+                      </a>
+                      <a id="btnNext" style="color: #666">
+                        <v-icon>mdi-skip-next</v-icon>
+                      </a>
                     </div>
                   </div>
                   <div id="plwrap">
@@ -54,15 +58,7 @@ export default {
       if (supportsAudio) {
         // initialize plyr
         var player = new Plyr("#audio1", {
-          controls: [
-            "restart",
-            "play",
-            "progress",
-            "current-time",
-            "duration",
-            "mute",
-            "volume"
-          ]
+          controls: ["play", "progress", "current-time", "duration"]
         });
         // initialize playlist and controls
         var index = 0,
@@ -72,7 +68,7 @@ export default {
           tracks = [
             {
               track: 1,
-              name: "우리",
+              name: "양방언 - 우리",
               duration: "5:10",
               file: "we"
             },
@@ -204,7 +200,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 /* Font Family
 ================================================== */
 @import url("https://cdn.plyr.io/3.5.6/plyr.css");
@@ -384,13 +380,13 @@ audio {
 .plSel,
 .plSel:hover {
   background-color: rgba(0, 0, 0, 0.1);
-  color: #fff;
+  color: #000;
   cursor: default !important;
 }
 
 #tracks a {
   border-radius: 3px;
-  color: #fff;
+  color: #000;
   cursor: pointer;
   display: inline-block;
   font-size: 2.3rem;
@@ -422,7 +418,7 @@ audio {
 .plyr--audio .plyr__controls {
   background-color: transparent !important;
   border: none;
-  color: #fff !important;
+  color: #666 !important;
   padding: 20px 20px 20px 13px;
   width: 100%;
 }

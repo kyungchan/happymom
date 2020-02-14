@@ -9,10 +9,20 @@
         </v-toolbar-title>
       </router-link>
 
+      <v-divider inset vertical class="hidden-sm-and-down"></v-divider>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn text v-html="$t('menu1')" to="/survey"></v-btn>
       </v-toolbar-items>
-      <v-menu open-on-hover offset-y>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn text v-html="$t('menu3')" to="/info"></v-btn>
+      </v-toolbar-items>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn text v-html="$t('menu4')" to="/music"></v-btn>
+      </v-toolbar-items>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn text v-html="$t('menu5')" to="/image"></v-btn>
+      </v-toolbar-items>
+      <!-- <v-menu open-on-hover offset-y>
         <template v-slot:activator="{ on }">
           <v-toolbar-items>
             <v-btn v-on="on" text class="hidden-sm-and-down">
@@ -33,7 +43,7 @@
             <v-list-item-title v-html="$t('menu5')"></v-list-item-title>
           </v-list-item>
         </v-list>
-      </v-menu>
+      </v-menu>-->
       <v-spacer></v-spacer>
 
       <router-link to="/signin" v-if="$store.state.token == null">
@@ -89,17 +99,46 @@
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" app temporary>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title text-uppercase font-weight-light">
-            <span>Happy</span>
-            <span class="font-weight-medium">mom</span>
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+      <template v-slot:prepend>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title text-uppercase font-weight-light">
+              <span>Happy</span>
+              <span class="font-weight-medium">mom</span>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider />
+        <v-list-item v-if="$store.state.token != null" to="/my">
+          <v-list-item-avatar>
+            <v-icon large>mdi-account-circle</v-icon>
+          </v-list-item-avatar>
 
-      <v-divider id="drawer-divider"></v-divider>
+          <v-list-item-content>
+            <v-list-item-title>{{ username }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-row>
+            <v-col align="center">
+              <v-btn
+                v-if="$store.state.token != null"
+                text
+                v-html="$t('auth-signout')"
+                @click="signOut"
+              >로그아웃</v-btn>
+              <v-btn
+                v-if="$store.state.token == null"
+                text
+                v-html="$t('auth-signin')"
+                to="/signin"
+              >로그인</v-btn>
+            </v-col>
+          </v-row>
+        </v-list-item>
+      </template>
 
+      <v-divider />
       <v-list dense>
         <v-list-item link to="/survey">
           <v-list-item-icon>
@@ -109,7 +148,31 @@
             <v-list-item-title v-html="$t('menu1')"></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
+        <v-list-item link to="/info">
+          <v-list-item-icon>
+            <v-icon>mdi-bookshelf</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-html="$t('menu3')"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="/music">
+          <v-list-item-icon>
+            <v-icon>mdi-playlist-music</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-html="$t('menu4')"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="/image">
+          <v-list-item-icon>
+            <v-icon>mdi-flower-poppy</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-html="$t('menu5')"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <!-- 
         <v-list-group prepend-icon="mdi-information-outline" no-action>
           <template v-slot:activator>
             <v-list-item-title v-html="$t('menu2')"></v-list-item-title>
@@ -129,7 +192,7 @@
               <v-list-item-title v-html="$t('menu5')"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list-group>
+        </v-list-group>-->
       </v-list>
     </v-navigation-drawer>
 
@@ -163,15 +226,25 @@ a {
 import Vue from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import i18n from "./i18n";
+import store from "./store";
+import router from "./router";
+
+var signOut = () => {
+  return new Promise((resolve, reject) => {
+    router.push({ name: "home" });
+    resolve();
+  });
+};
 
 export default Vue.extend({
   name: "App",
   components: {},
   methods: {
     signOut() {
-      this.$store.commit("signOut");
-      Vue.$cookies.remove("token");
-      this.$router.push("/");
+      signOut().then(r => {
+        store.commit("signOut");
+        Vue.$cookies.remove("token");
+      });
     }
   },
   computed: {
@@ -195,3 +268,8 @@ export default Vue.extend({
   })
 });
 </script>
+<style scoped>
+.drawer-user-info {
+  padding: 10px;
+}
+</style>

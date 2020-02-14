@@ -2,8 +2,8 @@
   <div>
     <div id="home-banner"></div>
     <v-container>
-      <v-row>
-        <v-col :cols="12" :xs="12" :sm="6" :md="6" :lg="6" :xl="4" offset-xl="2">
+      <v-row justify="center">
+        <v-col :cols="12" :xs="12" :sm="10" :md="6" :lg="6" :xl="3">
           <v-card>
             <v-card-title primary-title>
               {{
@@ -21,17 +21,56 @@
             </v-card-actions>
           </v-card>
         </v-col>
-        <v-col :cols="12" :xs="12" :sm="6" :md="6" :lg="6" :xl="4">
+
+        <v-col fill-height :cols="12" :xs="12" :sm="10" :md="6" :lg="6" :xl="3">
           <v-card>
             <v-card-title primary-title>
               {{
-              $t("menu2")
+              $t("menu3")
               }}
             </v-card-title>
             <v-card-text></v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn text color="primary" to="/info">
+                {{
+                $t("home-start")
+                }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <v-col fill-height :cols="12" :xs="12" :sm="10" :md="6" :lg="6" :xl="3">
+          <v-card>
+            <v-card-title primary-title>
+              {{
+              $t("menu4")
+              }}
+            </v-card-title>
+            <v-card-text></v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn text color="primary" to="/music">
+                {{
+                $t("home-start")
+                }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <v-col :cols="12" :xs="12" :sm="10" :md="6" :lg="6" :xl="3">
+          <v-card>
+            <v-card-title primary-title>
+              {{
+              $t("menu5")
+              }}
+            </v-card-title>
+            <v-card-text></v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn text color="primary" to="/image">
                 {{
                 $t("home-start")
                 }}

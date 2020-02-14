@@ -1,13 +1,19 @@
 <template>
-  <div>
-    ID:{{ userid }}
-    <br />
-    NAME: {{ username }}
-    <br />
-    EMAIL: {{ useremail }}
-    <br />
-    ROLE: {{ userrole }}
-  </div>
+  <v-container>
+    <v-card>
+      <v-card-text>
+        <div>
+          ID:{{ userid }}
+          <br />
+          NAME: {{ username }}
+          <br />
+          EMAIL: {{ useremail }}
+          <br />
+          ROLE: {{ userrole }}
+        </div>
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
 
 <script>

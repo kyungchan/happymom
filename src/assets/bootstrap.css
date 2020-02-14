@@ -175,7 +175,6 @@ a {
 
 a:hover {
     color: #0056b3;
-    text-decoration: underline;
 }
 
 a:not([href]) {
@@ -447,8 +446,6 @@ h6,
 }
 
 hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     border: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
