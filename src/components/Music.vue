@@ -344,6 +344,7 @@ audio {
   cursor: pointer;
   display: block;
   margin: 0;
+  margin-right: 25px;
   padding: 21px 0;
 }
 
@@ -414,6 +415,10 @@ audio {
 
 /* Plyr Overrides
 ================================================== */
+
+.plyr--full-ui input[type="range"] {
+  color: #6200ea;
+}
 
 .plyr--audio .plyr__controls {
   background-color: transparent !important;
