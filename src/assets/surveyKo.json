@@ -29,19 +29,19 @@
                     }
                 ],
                 "rows": [{
-                        "value": "talk",
+                        "value": "1",
                         "text": "말하기"
                     },
                     {
-                        "value": "listen",
+                        "value": "2",
                         "text": "듣기"
                     },
                     {
-                        "value": "read",
+                        "value": "3",
                         "text": "읽기"
                     },
                     {
-                        "value": "write",
+                        "value": "4",
                         "text": "쓰기"
                     }
                 ],
@@ -58,11 +58,11 @@
                     "title": "귀하와 남편의 만 나이는?",
                     "isRequired": true,
                     "items": [{
-                            "name": "my",
+                            "name": "1",
                             "title": "귀하의 연령"
                         },
                         {
-                            "name": "husb",
+                            "name": "2",
                             "title": "남편의 연령"
                         }
                     ]
@@ -128,26 +128,47 @@
                     ]
                 },
                 {
-                    "type": "boolean",
+                    "type": "radiogroup",
                     "name": "question6",
-                    "useDisplayValuesInTitle": false,
-                    "title": "현재 배우자와 살고 있습니까?",
+                    "title": {
+                        "ko": "현재 배우자와 살고 있습니까?"
+                    },
                     "isRequired": true,
-                    "labelTrue": "예",
-                    "labelFalse": "아니오",
-                    "valueTrue": "1",
-                    "valueFalse": "0"
+                    "choices": [{
+                            "value": "1",
+                            "text": {
+                                "ko": "예"
+                            }
+                        },
+                        {
+                            "value": "2",
+                            "text": {
+                                "ko": "아니오"
+                            }
+                        }
+                    ]
                 },
                 {
-                    "type": "boolean",
+                    "type": "radiogroup",
                     "name": "question7",
-                    "useDisplayValuesInTitle": false,
-                    "title": "어머님은 직업을 가지고 있습니까?",
+                    "title": {
+                        "ko": "어머님은 직업을 가지고 있습니까?"
+                    },
                     "isRequired": true,
-                    "labelTrue": "있다",
-                    "labelFalse": "없다",
-                    "valueTrue": "1",
-                    "valueFalse": "0"
+                    "choices": [{
+                            "value": "1",
+                            "text": {
+                                "ko": "있다"
+                            }
+                        },
+                        {
+                            "value": "2",
+                            "text": {
+                                "ko": "없다"
+                            }
+                        }
+
+                    ]
                 },
                 {
                     "type": "radiogroup",

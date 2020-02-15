@@ -9,7 +9,10 @@
                 <span class="title">스트레스 측정 설문을 시작합니다.</span>
               </v-card-title>
               <v-card-subtitle>
-                <span class="subttle">중재 전, 중재 후 설문조사를 선택해주세요.</span>
+                <span class="subttle">
+                  중재 전, 중재 후 설문조사를
+                  선택해주세요.
+                </span>
               </v-card-subtitle>
               <v-card-text>
                 <v-radio-group v-model="radios" :mandatory="false">
@@ -39,14 +42,16 @@
 
 <script>
 import * as SurveyVue from "survey-vue";
-import * as SurveyPDF from "survey-pdf";
-import * as SurveyKo from "survey-knockout";
 import "@/assets/bootstrap.css";
 import surveyJSON from "@/assets/surveyKo.json";
+import Axios from "axios";
+import store from "../store";
+
 var Survey = SurveyVue.Survey;
 Survey.cssType = "bootstrap";
 
-import * as widgets from "surveyjs-widgets";
+var env = "";
+if (process.env.NODE_ENV == "development") env = "api/";
 
 var model = new SurveyVue.Model(surveyJSON);
 export default {
@@ -62,7 +67,7 @@ export default {
     };
     return {
       radios: "before",
-      nowPage: 1,
+      nowPage: 2,
       surveyCompleted: false,
       surveyResult: "",
       survey: model,
@@ -71,8 +76,13 @@ export default {
   },
   methods: {
     complete(result) {
-      this.surveyCompleted = true;
-      this.surveyResult = JSON.stringify(result.data, null, 4);
+      console.log(result.data);
+      console.log(model.data);
+      Axios.post(env + "survey/" + store.state.userid, {
+        json: JSON.stringify(result.data, null, 0)
+      })
+        .then(res => {})
+        .catch(err => {});
     },
     surveyNext() {
       this.nowPage = this.nowPage + 1;

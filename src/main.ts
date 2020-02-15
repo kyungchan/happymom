@@ -18,7 +18,7 @@ new Vue({
     render: h => h(App)
 }).$mount("#app");
 
-const token = Vue.$cookies.get("token");
+var token = Vue.$cookies.get("token");
 if (token) axios.defaults.headers.common.token = Vue.$cookies.get("token");
 else store.state.token = null;
 axios.interceptors.response.use(
@@ -27,7 +27,7 @@ axios.interceptors.response.use(
             Vue.$cookies.set("token", res.data.token, "1h");
             axios.defaults.headers.common.token = Vue.$cookies.get("token");
         }
-        if (res.data.expired) {
+        if (res.data.expired || Vue.$cookies.get("token") == null) {
             store.commit("signOut");
             Vue.$cookies.remove("token");
             res.data.token = null;
@@ -35,8 +35,9 @@ axios.interceptors.response.use(
         return Promise.resolve(res);
     },
     err => {
-        if (err.response.status === 401) {
-            router.push("/signin");
+        if (err.response.status === 406) {
+            store.commit("signOut");
+            Vue.$cookies.remove("token");
             return;
         }
         return Promise.reject(err);

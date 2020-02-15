@@ -63,6 +63,9 @@
         </template>
 
         <v-list>
+          <v-list-item to="/admin" v-if="$store.state.role == 'admin'">
+            <v-list-item-title>Admin</v-list-item-title>
+          </v-list-item>
           <v-list-item to="/my">
             <v-list-item-title v-html="$t('auth-my')"></v-list-item-title>
           </v-list-item>

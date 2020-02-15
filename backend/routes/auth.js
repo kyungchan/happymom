@@ -7,7 +7,6 @@ var conn = require("../services/dbconnection");
 
 const verifyToken = (token) => {
     return new Promise((resolve, reject) => {
-        console.log(token);
         if (token) {
             jwt.verify(token, db_config.password, (err, v) => {
                 if (err)
@@ -20,22 +19,36 @@ const verifyToken = (token) => {
         }
     })
 }
-const refreshToken = async(t) => {
-    let oldToken = await checkToken(t)
-    jwt.sign({
-            userid: oldToken.userid,
-            username: oldToken.username,
-            email: oldToken.email,
-        },
-        db_config.password, {
-            expiresIn: '1h',
-            subject: 'userInfo'
-        }, (err, token) => {
-            if (!err)
-                return token
-            else
-                return null
+var refreshToken = (t) => {
+    return new Promise((resolve, reject) => {
+        verifyToken(t).then(token => {
+            const dateObj = new Date();
+            if (token.exp - (dateObj.getTime() / 1000) < 600) {
+                console.log("Token is refreshed: " + token.userid);
+                jwt.sign({
+                        userid: token.userid,
+                        username: token.username,
+                        email: token.email,
+                        role: token.role,
+                        create_time: token.create_time,
+                    },
+                    db_config.password, {
+                        expiresIn: '1h',
+                        subject: 'userInfo'
+                    }, (err, token) => {
+                        if (!err) {
+                            resolve(token);
+                        } else {
+                            reject(err)
+                        }
+                    })
+            } else {
+                resolve(false)
+            }
+        }).catch(err => {
+            reject(err)
         })
+    })
 }
 
 router.post('/signin', function(req, res) {
@@ -63,7 +76,7 @@ router.post('/signin', function(req, res) {
                                 subject: 'userInfo'
                             }, (err, token) => {
                                 if (err) {
-                                    res.sendStatus(400);
+                                    res.sendStatus(401);
                                 } else {
                                     res.status(200).json({
                                         status: 200,
@@ -87,26 +100,33 @@ router.post('/check', function(req, res) {
                 decoded
             })
         } else {
-            res.status(403);
+            res.status(401);
         }
     }).catch(err => {
-        res.send({
-            expired: true
-        })
+        res.status(401);
     })
 
 });
 
-router.get('/refresh', function(req, res) {
-    const token = req.headers['x-access-token'];
-    const newToken = refreshToken(token);
-    if (newToken) {
-        res.status(200).send({
-            token
+router.post('/refresh', function(req, res) {
+    var token = req.body.token;
+    refreshToken(token).then(newToken => {
+        if (newToken == null)
+            res.sendStatus(401);
+        else {
+            if (newToken) {
+                res.status(201).send({
+                    token: newToken
+                });
+            } else {
+                res.sendStatus(202);
+            }
+        }
+    }).catch(err => {
+        res.status(406).send({
+            msg: "TokenExpiredError"
         });
-    } else {
-        res.sendStatus(400);
-    }
+    })
 });
 
 module.exports = router;

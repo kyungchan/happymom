@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import NProgress from "nprogress";
 import Store from "@/store";
 import "@/assets/nprogress.css";
+import Axios from "axios";
 Vue.use(VueRouter);
 
 const routes = [
@@ -31,13 +32,13 @@ const routes = [
     {
         path: "/survey",
         name: "survey",
-        meta: { unauthorized: true },
+        meta: { auth: true },
         component: () => import("../views/Survey.vue")
     },
     {
         path: "/my",
         name: "my",
-        meta: { unauthorized: true },
+        meta: { auth: true },
         component: () => import("../views/My.vue")
     },
     {
@@ -54,6 +55,12 @@ const routes = [
         path: "/image",
         name: "image",
         component: () => import("../views/Gi.vue")
+    },
+    {
+        path: "/admin",
+        name: "admin",
+        meta: { auth: true, admin: true },
+        component: () => import("../views/Admin.vue")
     }
 ];
 
@@ -66,14 +73,39 @@ const router = new VueRouter({
 NProgress.configure({ showSpinner: false });
 NProgress.configure({ easing: "ease", speed: 300 });
 
+var env = "";
+if (process.env.NODE_ENV == "development") env = "api/";
+
 router.beforeEach(async (to, from, next) => {
     var token = Vue.$cookies.get("token");
     NProgress.start();
     if (token != null) {
-        Store.commit("signIn", token);
-        Store.commit("loginCheck");
+        if (Store.state.userid == "") {
+            Store.commit("signIn", token);
+            Store.commit("loginCheck");
+        } else {
+            Axios.post(env + "auth/refresh", {
+                token: token
+            })
+                .then(res => {
+                    if (res.status == 201) {
+                        Store.commit("signIn", token);
+                        Store.commit("loginCheck");
+                    } else if (res.status == 406) {
+                        Store.commit("signOut");
+                        Vue.$cookies.remove("token");
+                        return next("/signin");
+                    }
+                })
+                .catch(err => {
+                    console.log(2);
+                    return next("/signin");
+                });
+
+            return next();
+        }
     }
-    if (to.matched.some(record => record.meta.unauthorized)) {
+    if (to.matched.some(record => record.meta.auth)) {
         if (token != null) {
             return next();
         } else {
