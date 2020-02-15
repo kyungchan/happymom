@@ -92,13 +92,15 @@ export default {
 </style>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-  position: absolute;
-  width: 100%;
+.fade-enter-active {
+  transition: opacity 0.3s;
+  transition-delay: 0.3s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+  transition: opacity 0.3s;
+}
+.fade-enter-to {
+  opacity: 1;
 }
 </style>

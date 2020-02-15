@@ -1,8 +1,19 @@
 
 <template>
-<v-container>
+<v-container id="music">
   <v-row>
-    <v-col>
+    <v-col
+      :cols="12"
+      :xs="12"
+      :sm="10"
+      :offset-sm="1"
+      :md="10"
+      :offset-md="1"
+      :lg="10"
+      :offset-lg="1"
+      :xl="8"
+      :offset-xl="2"
+    >
       <v-card>
         <v-card-title class="display-1" v-html="$t('menu4')"></v-card-title>
         <v-card-text class="subtitle-1" v-html="$t('menu4-subtitle')">자유롭게 감상후 느낌에 대해 간단히 이야기 하기</v-card-text>
@@ -200,7 +211,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 /* Font Family
 ================================================== */
 @import url("https://cdn.plyr.io/3.5.6/plyr.css");
@@ -209,7 +220,7 @@ export default {
 /* Global Styles
 ================================================== */
 
-html,
+#music html,
 body {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -222,28 +233,14 @@ body {
   font-weight: 400;
   letter-spacing: 0.025rem;
   line-height: 1.618;
-  padding: 1rem 0;
-}
-
-*,
-::before,
-::after {
-  box-sizing: border-box;
-}
-
-* {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
 }
 
 /* Setup
 ================================================== */
 
-.container {
+.container#music {
   position: relative;
   margin: 0 auto;
-  max-width: 800px;
-  width: 100%;
 }
 .column {
   width: inherit;

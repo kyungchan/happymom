@@ -48,14 +48,15 @@
 
       <router-link to="/signin" v-if="$store.state.token == null">
         <v-btn text>
-          <v-icon>mdi-login</v-icon>
-          <span class="hidden-sm-and-down" v-html="$t('auth-signin')"></span>
+          <v-icon class="hidden-sm-and-down">mdi-login</v-icon>
+          <span v-html="$t('auth-signin')"></span>
         </v-btn>
       </router-link>
       <v-menu v-if="$store.state.token != null" offset-y>
         <template v-slot:activator="{ on }">
           <v-btn v-on="on" text>
-            <v-icon>mdi-account-circle</v-icon>
+            <span class="hidden-md-and-up">My</span>
+            <v-icon class="hidden-sm-and-down">mdi-account-circle</v-icon>
             <span class="hidden-sm-and-down">{{ username }}</span>
             <v-icon>mdi-menu-down</v-icon>
           </v-btn>

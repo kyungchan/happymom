@@ -14,6 +14,7 @@ export default new Vuex.Store({
         username: "",
         email: "",
         role: "",
+        create_time: "",
         token: null
     },
     mutations: {
@@ -29,6 +30,7 @@ export default new Vuex.Store({
             state.username = "";
             state.email = "";
             state.role = "";
+            state.create_time = "";
         },
         loginCheck(state) {
             axios
@@ -43,6 +45,7 @@ export default new Vuex.Store({
                         state.username = res.data.decoded.username;
                         state.email = res.data.decoded.email;
                         state.role = res.data.decoded.role;
+                        state.create_time = res.data.decoded.create_time;
                     }
                 });
         }

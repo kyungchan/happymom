@@ -16,7 +16,7 @@
         <v-card style="padding-bottom:10px">
           <v-card-title class="display-1" v-html="$t('menu5')"></v-card-title>
           <v-card outlined style="margin:10px">
-            <v-tabs center-active v-model="tab" background-color="primary" dark>
+            <v-tabs fixed-tabs center-active v-model="tab" background-color="primary" dark>
               <v-tab v-for="item in items" :key="item.tab">{{ item.tab }}</v-tab>
             </v-tabs>
 

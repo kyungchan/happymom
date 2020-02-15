@@ -40,7 +40,7 @@ const refreshToken = async(t) => {
 
 router.post('/signin', function(req, res) {
     conn.getConnection((err, connection) =>
-        connection.query('SELECT userid, username, email, role from user WHERE userid = ? and password = ?;', [req.body.id, req.body.password],
+        connection.query('SELECT userid, username, email, role, create_time from user WHERE userid = ? and password = ?;', [req.body.id, req.body.password],
             (err, rows) => {
                 if (err) {
                     res.sendStatus(404);
@@ -48,11 +48,15 @@ router.post('/signin', function(req, res) {
                     if (rows[0] == undefined) {
                         res.sendStatus(404);
                     } else {
+                        var curTime = new Date(rows[0].create_time);
+                        var month = curTime.getMonth();
+                        var date = curTime.getDate();
                         jwt.sign({
                                 userid: rows[0].userid,
                                 username: rows[0].username,
                                 email: rows[0].email,
-                                role: rows[0].role
+                                role: rows[0].role,
+                                create_time: curTime.getFullYear() + "-" + (month[1] ? month : '0' + month) + "-" + (date[1] ? date : '0' + date) + " " + curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds()
                             },
                             db_config.password, {
                                 expiresIn: '1h',

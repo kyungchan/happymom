@@ -18,6 +18,9 @@
     "menu5-4-title": "4회기",
     "menu5-4-content": "미래의 나와 아이의 모습에 대한 긍정적인 심상 떠올리기",
     "home-start": "시작하기",
+    "auth-agree": "동의합니다",
+    "auth-agree-title1": "연구 설명서",
+    "auth-agree-title2": "연구 참여 동의서",
     "auth-signin": "로그인",
     "auth-signout": "로그아웃",
     "auth-signup": "회원가입",
@@ -37,5 +40,6 @@
     "auth-err-email-conf": "이메일이 올바르지 않습니다.",
     "auth-err-name-conf": "10글자 이하로 입력하세요.",
     "auth-err-id": "이미 존재하는 ID입니다.",
-    "auth-ok-signup": "회원가입에 성공했습니다."
+    "auth-ok-signup": "회원가입에 성공했습니다.",
+    "my-agree": "연구 참여 동의"
 }
