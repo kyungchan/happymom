@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
 
 router.post('/:id', function(req, res) {
     conn.getConnection((err, connection) => {
-        connection.query('INSERT INTO survey(userid, survey_json) VALUES (?, ?, ?)', [req.params.id, req.body.json],
+        connection.query('INSERT INTO survey(userid, survey_json) VALUES (?, ?)', [req.params.id, req.body.json],
             (err, rows) => {
                 if (err) {
                     console.log(err);

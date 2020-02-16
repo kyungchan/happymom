@@ -114,7 +114,7 @@ export default {
         if (res.status == 200) {
           savePDF(
             res.data.result.userid + "_" + res.data.result._id,
-            res.data.result.survey_data
+            res.data.result.survey_json
           );
         }
       });

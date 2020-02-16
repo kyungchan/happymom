@@ -33,19 +33,19 @@
      ],
      "rows": [
       {
-       "value": "talk",
+       "value": "1",
        "text": "말하기"
       },
       {
-       "value": "listen",
+       "value": "2",
        "text": "듣기"
       },
       {
-       "value": "read",
+       "value": "3",
        "text": "읽기"
       },
       {
-       "value": "write",
+       "value": "4",
        "text": "쓰기"
       }
      ],
@@ -329,23 +329,26 @@
    "name": "page3",
    "elements": [
     {
-     "type": "boolean",
+     "type": "radiogroup",
      "name": "question13",
-     "useDisplayValuesInTitle": false,
      "title": {
       "ko": "귀하의 유산 경험은 있습니까?"
      },
      "isRequired": true,
-     "labelTrue": {
-      "default": "Yes",
-      "ko": "있다."
-     },
-     "labelFalse": {
-      "default": "No",
-      "ko": "없다."
-     },
-     "valueTrue": "1",
-     "valueFalse": "0"
+     "choices": [
+      {
+       "value": "1",
+       "text": {
+        "ko": "있다"
+       }
+      },
+      {
+       "value": "2",
+       "text": {
+        "ko": "없다"
+       }
+      }
+     ]
     },
     {
      "type": "text",
@@ -754,7 +757,7 @@
       {
        "value": "4",
        "text": {
-        "ko": "심ㅎ각하게 된다."
+        "ko": "심각하게 된다."
        }
       }
      ],

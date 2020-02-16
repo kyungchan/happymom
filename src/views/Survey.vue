@@ -28,13 +28,9 @@
           </div>
           <survey v-else :survey="survey"></survey>
         </transition>
-        <v-textarea
-          id="surveyResult"
-          label="Result JSON"
-          v-model="surveyResult"
-          v-if="surveyCompleted"
-          auto-grow
-        ></v-textarea>
+        <div v-if="surveyCompleted">
+          <v-btn color="primary" to="/">{{$t('survey-tohome')}}</v-btn>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -52,14 +48,15 @@ Survey.cssType = "bootstrap";
 
 var env = "";
 if (process.env.NODE_ENV == "development") env = "api/";
-
-var model = new SurveyVue.Model(surveyJSON);
+var model;
 export default {
   name: "app",
+
   components: {
     Survey
   },
   data() {
+    model = new SurveyVue.Model(surveyJSON);
     var savePDF = function() {
       var surveyPDF = new SurveyPDF.SurveyPDF(surveyJSON);
       surveyPDF.data = model.data;
@@ -69,15 +66,13 @@ export default {
       radios: "before",
       nowPage: 2,
       surveyCompleted: false,
-      surveyResult: "",
       survey: model,
       savePDF: savePDF
     };
   },
   methods: {
     complete(result) {
-      console.log(result.data);
-      console.log(model.data);
+      this.surveyCompleted = true;
       Axios.post(env + "survey/" + store.state.userid, {
         json: JSON.stringify(result.data, null, 0)
       })

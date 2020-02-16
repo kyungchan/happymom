@@ -41,5 +41,8 @@
     "auth-err-name-conf": "10글자 이하로 입력하세요.",
     "auth-err-id": "이미 존재하는 ID입니다.",
     "auth-ok-signup": "회원가입에 성공했습니다.",
-    "my-agree": "연구 참여 동의"
+    "my-agree": "연구 참여 동의",
+    "survey-tohome": "홈으로",
+    "survey-reset": "다시하기"
+
 }
