@@ -10,6 +10,7 @@ if (process.env.NODE_ENV == "development") env = "api/";
 export default new Vuex.Store({
     state: {
         locale: "한국어",
+        localeCode: "ko",
         userid: "",
         username: "",
         email: "",
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     mutations: {
         changeLocale(state, locale) {
             state.locale = locale;
+        },
+        changeLocaleCode(state, localeCode) {
+            state.localeCode = localeCode;
         },
         signIn(state, token) {
             state.token = token;

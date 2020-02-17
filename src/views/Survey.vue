@@ -70,7 +70,21 @@ export default {
       savePDF: savePDF
     };
   },
+  computed: {
+    localeCode() {
+      return this.$store.state.localeCode;
+    }
+  },
+  watch: {
+    localeCode(localeCode) {
+      this.changeLocale(localeCode);
+    }
+  },
   methods: {
+    changeLocale(locale) {
+      this.survey.locale = locale;
+      this.survey.render();
+    },
     complete(result) {
       this.surveyCompleted = true;
       Axios.post(env + "survey/" + store.state.userid, {
@@ -84,6 +98,7 @@ export default {
     }
   },
   mounted() {
+    this.changeLocale(this.localeCode);
     model.onComplete.add(result => this.complete(result));
   }
 };

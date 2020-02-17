@@ -1,3 +1,6 @@
+/* eslint no-use-before-define: 0 */
+/* eslint-disable */
+
 <template>
   <v-container>
     <v-row>
@@ -22,7 +25,7 @@
             <v-toolbar-title>설문조사 데이터</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
-            <v-btn color="primary">전체 CSV 다운로드</v-btn>
+            <v-btn color="primary" @click="getCsv">전체 CSV 다운로드</v-btn>
           </v-toolbar>
           <v-divider></v-divider>
           <v-data-table
@@ -48,6 +51,7 @@ import "@/assets/bootstrap.css";
 import surveyJSON from "@/assets/surveyKo.json";
 import Axios from "axios";
 import router from "../router";
+import moment from "moment";
 
 var Survey = SurveyVue.Survey;
 Survey.cssType = "bootstrap";
@@ -82,6 +86,7 @@ export default {
   },
   data() {
     return {
+      moment: moment,
       headers: [
         {
           text: "#",
@@ -107,6 +112,28 @@ export default {
         if (res.status == 200) {
           this.rows = res.data.result;
         }
+      });
+    },
+    getCsv() {
+      Axios({
+        method: "POST",
+        url: env + "survey/csv/*",
+        responseType: "blob"
+      }).then(response => {
+        var fileURL = window.URL.createObjectURL(
+          new Blob(["\ufeff", response.data])
+        );
+        var fileLink = document.createElement("a");
+
+        var universalBOM = "\uFEFF";
+        fileLink.href = fileURL;
+        fileLink.setAttribute(
+          "download",
+          this.moment().format("YYMMDD-HHmmss") + ".csv"
+        );
+        document.body.appendChild(fileLink);
+
+        fileLink.click();
       });
     },
     getJson(id) {

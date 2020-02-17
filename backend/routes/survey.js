@@ -37,7 +37,7 @@ router.post('/:id', function(req, res) {
     });
 });
 
-router.get('/csv/:id', function(req, res) {
+router.post('/csv/:id', function(req, res) {
     if (req.params.id == '*') {
         conn.getConnection((err, connection) => {
             connection.query('SELECT * FROM survey',
@@ -48,7 +48,22 @@ router.get('/csv/:id', function(req, res) {
                         if (rows[0] == undefined) {
                             res.sendStatus(404);
                         } else {
-                            res.status(201).send({ result: rows });
+                            var jsonArray = new Array;
+                            for (var i in rows) {
+                                var jsonElement = new Object;
+                                var jsonParsed = new Object;
+                                jsonElement.id = rows[i]._id;
+                                jsonElement.userid = rows[i].userid;
+                                jsonElement.create_time = rows[i].create_time;
+                                jsonParsed = JSON.parse(rows[i].survey_json);
+                                Object.assign(jsonElement, jsonParsed);
+                                jsonArray.push(jsonElement);
+                            }
+                            jsonexport(jsonArray, (err, csv) => {
+                                res.setHeader('Content-disposition', 'attachment; filename=data.csv');
+                                res.set('Content-Type', 'text/csv; charset=euc-kr');
+                                res.status(200).send(csv);
+                            });
                         }
                     }
                 });

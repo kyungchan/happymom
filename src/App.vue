@@ -87,10 +87,7 @@
           <v-list-item
             v-for="(locale, key) in locales"
             :key="key"
-            @click="
-                            $i18n.locale = locale.locale;
-                            $store.commit('changeLocale', locale.title);
-                        "
+            @click="changeLocale(locale.locale, locale.title)"
           >
             <v-list-item-title>
               {{
@@ -244,12 +241,22 @@ export default Vue.extend({
   name: "App",
   components: {},
   methods: {
+    changeLocale(locale: string, title: string) {
+      this.$i18n.locale = locale;
+      this.$store.commit("changeLocale", title);
+      this.$store.commit("changeLocaleCode", locale);
+      Vue.$cookies.set("locale", { title: title, locale: locale }, "6m");
+    },
     signOut() {
       signOut().then(r => {
         store.commit("signOut");
         Vue.$cookies.remove("token");
       });
     }
+  },
+  mounted() {
+    var localeData = Vue.$cookies.get("locale");
+    this.changeLocale(localeData.locale, localeData.title);
   },
   computed: {
     username() {
