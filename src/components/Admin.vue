@@ -95,6 +95,7 @@ export default {
           value: "_id"
         },
         { text: "ID", value: "userid" },
+        { text: "이름", value: "username" },
         { text: "작성일자", value: "create_time" },
         {
           text: "설문지 조회",

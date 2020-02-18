@@ -5,7 +5,7 @@ var jsonexport = require('jsonexport');
 
 router.post('/', function(req, res) {
     conn.getConnection((err, connection) => {
-        connection.query("SELECT _id, userid, date_format(create_time,'%Y-%m-%d %T') as create_time FROM survey",
+        connection.query("SELECT survey._id, survey.userid, user.username, survey.survey_json, date_format(survey.create_time,'%Y-%m-%d %T') as create_time FROM survey, user where survey.userid = user.userid;",
             (err, rows) => {
                 if (err) {
                     res.sendStatus(409);
@@ -40,7 +40,7 @@ router.post('/:id', function(req, res) {
 router.post('/csv/:id', function(req, res) {
     if (req.params.id == '*') {
         conn.getConnection((err, connection) => {
-            connection.query('SELECT * FROM survey',
+            connection.query("SELECT survey._id, survey.userid, user.username, survey.survey_json, date_format(survey.create_time,'%Y-%m-%d %T') as create_time FROM survey, user where survey.userid = user.userid;",
                 (err, rows) => {
                     if (err) {
                         res.sendStatus(409);
@@ -54,6 +54,7 @@ router.post('/csv/:id', function(req, res) {
                                 var jsonParsed = new Object;
                                 jsonElement.id = rows[i]._id;
                                 jsonElement.userid = rows[i].userid;
+                                jsonElement.username = rows[i].username;
                                 jsonElement.create_time = rows[i].create_time;
                                 jsonParsed = JSON.parse(rows[i].survey_json);
                                 Object.assign(jsonElement, jsonParsed);

@@ -3,7 +3,7 @@
     <div id="home-banner"></div>
     <v-container>
       <v-row justify="center">
-        <v-col :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="2">
+        <v-col :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="3">
           <v-card>
             <div id="menu1"></div>
             <v-card-title class>
@@ -22,7 +22,7 @@
           </v-card>
         </v-col>
 
-        <v-col fill-height :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="2">
+        <v-col fill-height :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="3">
           <v-card>
             <div id="menu2"></div>
             <v-card-title primary-title>
@@ -41,7 +41,7 @@
           </v-card>
         </v-col>
 
-        <v-col fill-height :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="2">
+        <v-col fill-height :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="3">
           <v-card>
             <div id="menu3"></div>
             <v-card-title>
@@ -60,7 +60,7 @@
           </v-card>
         </v-col>
 
-        <v-col :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="2">
+        <v-col :cols="11" :xs="11" :sm="10" :md="5" :lg="5" :xl="3">
           <v-card>
             <div id="menu4"></div>
             <v-card-title>
