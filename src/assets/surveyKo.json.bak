@@ -1,972 +1,347 @@
 {
- "locale": "ko",
- "pages": [
-  {
-   "name": "page1",
-   "elements": [
-    {
-     "type": "matrix",
-     "name": "question1",
-     "title": "귀하의 한국어 실력은 어느 정도입니까?",
-     "isRequired": true,
-     "columns": [
-      {
-       "value": "1",
-       "text": "전혀못함"
-      },
-      {
-       "value": "2",
-       "text": "잘 못함"
-      },
-      {
-       "value": "3",
-       "text": "보통"
-      },
-      {
-       "value": "4",
-       "text": "잘함"
-      },
-      {
-       "value": "5",
-       "text": "매우잘함"
-      }
-     ],
-     "rows": [
-      {
-       "value": "1",
-       "text": "말하기"
-      },
-      {
-       "value": "2",
-       "text": "듣기"
-      },
-      {
-       "value": "3",
-       "text": "읽기"
-      },
-      {
-       "value": "4",
-       "text": "쓰기"
-      }
-     ],
-     "isAllRowRequired": true
+    "locale": "ko",
+    "pages": [{
+            "name": "page1",
+            "elements": [{
+                "type": "matrix",
+                "name": "question1",
+                "title": "귀하의 한국어 실력은 어느 정도입니까?",
+                "isRequired": true,
+                "columns": [{
+                        "value": "1",
+                        "text": "전혀못함"
+                    },
+                    {
+                        "value": "2",
+                        "text": "잘 못함"
+                    },
+                    {
+                        "value": "3",
+                        "text": "보통"
+                    },
+                    {
+                        "value": "4",
+                        "text": "잘함"
+                    },
+                    {
+                        "value": "5",
+                        "text": "매우잘함"
+                    }
+                ],
+                "rows": [{
+                        "value": "1",
+                        "text": "말하기"
+                    },
+                    {
+                        "value": "2",
+                        "text": "듣기"
+                    },
+                    {
+                        "value": "3",
+                        "text": "읽기"
+                    },
+                    {
+                        "value": "4",
+                        "text": "쓰기"
+                    }
+                ],
+                "isAllRowRequired": true
+            }],
+            "title": "대상자 선별",
+            "description": "한국어 능력 측정후 평균평정 3점이상인 보통인 대상자만 중재하도록 하겠습니다."
+        },
+        {
+            "name": "page2",
+            "elements": [{
+                    "type": "multipletext",
+                    "name": "question2",
+                    "title": "귀하와 남편의 만 나이는?",
+                    "isRequired": true,
+                    "items": [{
+                            "name": "1",
+                            "title": "귀하의 연령"
+                        },
+                        {
+                            "name": "2",
+                            "title": "남편의 연령"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "name": "question3",
+                    "title": "귀하의 입국 전 국적은?",
+                    "isRequired": true
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question4",
+                    "title": "귀하가 한국에 거주(생활) 하신 기간은?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "6개월 미만"
+                        },
+                        {
+                            "value": "2",
+                            "text": "6개월 이상 ~ 1년 미만"
+                        },
+                        {
+                            "value": "3",
+                            "text": "1년 이상 ~ 3년 미만"
+                        },
+                        {
+                            "value": "4",
+                            "text": "3년 이상 ~ 5년 미만"
+                        },
+                        {
+                            "value": "5",
+                            "text": "5년 이상 ~ 6년 미만"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question5",
+                    "title": "귀하의 교육정도는?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "무학"
+                        },
+                        {
+                            "value": "2",
+                            "text": "초졸"
+                        },
+                        {
+                            "value": "3",
+                            "text": "중종"
+                        },
+                        {
+                            "value": "4",
+                            "text": "고졸"
+                        },
+                        {
+                            "value": "5",
+                            "text": "대졸이상"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question6",
+                    "title": {
+                        "ko": "현재 배우자와 살고 있습니까?"
+                    },
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": {
+                                "ko": "예"
+                            }
+                        },
+                        {
+                            "value": "2",
+                            "text": {
+                                "ko": "아니오"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question7",
+                    "title": {
+                        "ko": "어머님은 직업을 가지고 있습니까?"
+                    },
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": {
+                                "ko": "있다"
+                            }
+                        },
+                        {
+                            "value": "2",
+                            "text": {
+                                "ko": "없다"
+                            }
+                        }
+
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question8",
+                    "title": "귀하의 배우자의 직업은?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "생산직, 단순 노동직"
+                        },
+                        {
+                            "value": "2",
+                            "text": "상업 숙련기술직"
+                        },
+                        {
+                            "value": "3",
+                            "text": "일반 사무직(회사원, 공무원, 교사) "
+                        },
+                        {
+                            "value": "4",
+                            "text": "자영업"
+                        },
+                        {
+                            "value": "5",
+                            "text": "농축산업, 어업"
+                        },
+                        {
+                            "value": "6",
+                            "text": "기타"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question9",
+                    "title": "귀하 가정의 월 평균수입은 어느 정도 입니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "100만원 미만"
+                        },
+                        {
+                            "value": "2",
+                            "text": "100만원 이상 ~ 150만원 미만"
+                        },
+                        {
+                            "value": "3",
+                            "text": "150만원 이상 ~ 200만원 미만"
+                        },
+                        {
+                            "value": "4",
+                            "text": "200만원 이상"
+                        },
+                        {
+                            "value": "5",
+                            "text": "모름"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question10",
+                    "title": "귀하는 배우자와의 관계에 얼마나 만족하십니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "매우 만족한다."
+                        },
+                        {
+                            "value": "2",
+                            "text": "약간 만족한다."
+                        },
+                        {
+                            "value": "3",
+                            "text": "보통이다."
+                        },
+                        {
+                            "value": "4",
+                            "text": "별로 만족하지 못한다."
+                        },
+                        {
+                            "value": "5",
+                            "text": "전혀 만족하지 못한다."
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question11",
+                    "title": "귀하는 배우자와 하루 평균 얼마나 대화를 합니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "전혀 대화하지 않는다."
+                        },
+                        {
+                            "value": "2",
+                            "text": "30분 미만"
+                        },
+                        {
+                            "value": "3",
+                            "text": "30분-1시간 미만"
+                        },
+                        {
+                            "value": "4",
+                            "text": "1-2시간 미만"
+                        },
+                        {
+                            "value": "5",
+                            "text": "2시간 이상"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "question12",
+                    "title": "귀하는 지난 1년동안 지속적으로 2주 이상 일상생활이 어려울 정도로 슬프거나 절망감을  느꼈습니까?",
+                    "isRequired": true,
+                    "choices": [{
+                            "value": "1",
+                            "text": "그런 적 없다."
+                        },
+                        {
+                            "value": "2",
+                            "text": "가끔 느꼈다."
+                        },
+                        {
+                            "value": "3",
+                            "text": "자주 느꼈다."
+                        },
+                        {
+                            "value": "4",
+                            "text": "매우 자주 느꼈다."
+                        }
+                    ]
+                }
+            ],
+            "title": "신분확인"
+        },
+        {
+            "name": "page3",
+            "elements": [{
+                "type": "rating",
+                "name": "question19",
+                "title": {
+                    "ko": "현재 남편과의 요즈음 결혼 생활에 대한 귀하의 느낌을 잘 표현하고 있다고 \n  생각하는 숫자에 선택 해주시기 \n바랍니다."
+                },
+                "isRequired": true,
+                "rateMax": 7,
+                "minRateDescription": {
+                    "ko": "매우불행하다"
+                },
+                "maxRateDescription": {
+                    "ko": "매우 행복하다"
+                }
+            }],
+            "title": {
+                "ko": "결혼 만족도 측정도구"
+            }
+        }
+    ],
+    "showPageNumbers": true,
+    "showProgressBar": "top",
+    "startSurveyText": {
+        "ko": "설문시작"
+    },
+    "pagePrevText": {
+        "ko": "이전"
+    },
+    "pageNextText": {
+        "ko": "다음"
+    },
+    "completeText": {
+        "ko": "완료"
     }
-   ],
-   "title": "대상자 선별",
-   "description": "한국어 능력 측정후 평균평정 3점이상인 보통인 대상자만 중재하도록 하겠습니다."
-  },
-  {
-   "name": "page2",
-   "elements": [
-    {
-     "type": "multipletext",
-     "name": "question2",
-     "title": "귀하와 남편의 만 나이는?",
-     "isRequired": true,
-     "items": [
-      {
-       "name": "1",
-       "isRequired": true,
-       "title": "귀하의 연령"
-      },
-      {
-       "name": "2",
-       "isRequired": true,
-       "title": "남편의 연령"
-      }
-     ]
-    },
-    {
-     "type": "text",
-     "name": "question3",
-     "title": "귀하의 입국 전 국적은?",
-     "isRequired": true
-    },
-    {
-     "type": "radiogroup",
-     "name": "question4",
-     "title": "귀하가 한국에 거주(생활) 하신 기간은?",
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": "6개월 미만"
-      },
-      {
-       "value": "2",
-       "text": "6개월 이상 ~ 1년 미만"
-      },
-      {
-       "value": "3",
-       "text": "1년 이상 ~ 3년 미만"
-      },
-      {
-       "value": "4",
-       "text": "3년 이상 ~ 5년 미만"
-      },
-      {
-       "value": "5",
-       "text": "5년 이상 ~ 6년 미만"
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question5",
-     "title": "귀하의 교육정도는?",
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": "무학"
-      },
-      {
-       "value": "2",
-       "text": "초졸"
-      },
-      {
-       "value": "3",
-       "text": "중종"
-      },
-      {
-       "value": "4",
-       "text": "고졸"
-      },
-      {
-       "value": "5",
-       "text": "대졸이상"
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question6",
-     "title": {
-      "ko": "현재 배우자와 살고 있습니까?"
-     },
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "예"
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "아니오"
-       }
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question7",
-     "title": {
-      "ko": "어머님은 직업을 가지고 있습니까?"
-     },
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "있다"
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "없다"
-       }
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question8",
-     "title": "귀하의 배우자의 직업은?",
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": "생산직, 단순 노동직"
-      },
-      {
-       "value": "2",
-       "text": "상업 숙련기술직"
-      },
-      {
-       "value": "3",
-       "text": "일반 사무직(회사원, 공무원, 교사) "
-      },
-      {
-       "value": "4",
-       "text": "자영업"
-      },
-      {
-       "value": "5",
-       "text": "농축산업, 어업"
-      },
-      {
-       "value": "6",
-       "text": "기타"
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question9",
-     "title": "귀하 가정의 월 평균수입은 어느 정도 입니까?",
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": "100만원 미만"
-      },
-      {
-       "value": "2",
-       "text": "100만원 이상 ~ 150만원 미만"
-      },
-      {
-       "value": "3",
-       "text": "150만원 이상 ~ 200만원 미만"
-      },
-      {
-       "value": "4",
-       "text": "200만원 이상"
-      },
-      {
-       "value": "5",
-       "text": "모름"
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question10",
-     "title": "귀하는 배우자와의 관계에 얼마나 만족하십니까?",
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": "매우 만족한다."
-      },
-      {
-       "value": "2",
-       "text": "약간 만족한다."
-      },
-      {
-       "value": "3",
-       "text": "보통이다."
-      },
-      {
-       "value": "4",
-       "text": "별로 만족하지 못한다."
-      },
-      {
-       "value": "5",
-       "text": "전혀 만족하지 못한다."
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question11",
-     "title": "귀하는 배우자와 하루 평균 얼마나 대화를 합니까?",
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": "전혀 대화하지 않는다."
-      },
-      {
-       "value": "2",
-       "text": "30분 미만"
-      },
-      {
-       "value": "3",
-       "text": "30분-1시간 미만"
-      },
-      {
-       "value": "4",
-       "text": "1-2시간 미만"
-      },
-      {
-       "value": "5",
-       "text": "2시간 이상"
-      }
-     ]
-    },
-    {
-     "type": "radiogroup",
-     "name": "question12",
-     "title": "귀하는 지난 1년동안 지속적으로 2주 이상 일상생활이 어려울 정도로 슬프거나 절망감을  느꼈습니까?",
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": "그런 적 없다."
-      },
-      {
-       "value": "2",
-       "text": "가끔 느꼈다."
-      },
-      {
-       "value": "3",
-       "text": "자주 느꼈다."
-      },
-      {
-       "value": "4",
-       "text": "매우 자주 느꼈다."
-      }
-     ]
-    }
-   ],
-   "title": "신분확인"
-  },
-  {
-   "name": "page3",
-   "elements": [
-    {
-     "type": "radiogroup",
-     "name": "question13",
-     "title": {
-      "ko": "귀하의 유산 경험은 있습니까?"
-     },
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "있다"
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "없다"
-       }
-      }
-     ]
-    },
-    {
-     "type": "text",
-     "name": "question14",
-     "title": {
-      "ko": "임신주수?"
-     },
-     "isRequired": true
-    },
-    {
-     "type": "text",
-     "name": "question15",
-     "title": {
-      "ko": "현재의 임신은 몇 번째 임신 입니까?"
-     },
-     "isRequired": true
-    },
-    {
-     "type": "radiogroup",
-     "name": "question16",
-     "title": {
-      "ko": "임신 희망 여부는?"
-     },
-     "isRequired": true,
-     "choices": [
-      {
-       "value": "item1",
-       "text": {
-        "ko": "원했던 임신"
-       }
-      },
-      {
-       "value": "item2",
-       "text": {
-        "ko": "원하지 않은 임신"
-       }
-      }
-     ]
-    }
-   ],
-   "title": {
-    "ko": "산과적 특성"
-   },
-   "description": {
-    "ko": "해당되는 곳에 표시하시거나 응답해주세요."
-   }
-  },
-  {
-   "name": "page4",
-   "elements": [
-    {
-     "type": "matrix",
-     "name": "question17",
-     "title": {
-      "ko": "당신의 평소 생각을 떠올려 보시고, 가장 비슷한 상태 하나를 골라 선택해주시기 바랍니다."
-     },
-     "isRequired": true,
-     "columns": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "전혀 그렇지 않다."
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "대체로 그렇지 않다."
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": "대체로 그렇다."
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": "항상 그렇다."
-       }
-      }
-     ],
-     "rows": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "다른 사람들만큼 가치가 있다."
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "나는 좋은 성품을 가졌다."
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": "실패한 사람이라는 느낌을 갖는다."
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": "다른 사람들만큼은 일을 잘 할 수가 있다."
-       }
-      },
-      {
-       "value": "5",
-       "text": {
-        "ko": "자랑할 것이 없다."
-       }
-      },
-      {
-       "value": "6",
-       "text": {
-        "ko": " 자신에 대해 긍정적인 태도를 갖고 있다."
-       }
-      },
-      {
-       "value": "7",
-       "text": {
-        "ko": " 내 자신에 대해 만족한다."
-       }
-      },
-      {
-       "value": "8",
-       "text": {
-        "ko": " 내 자신을 좀 더 존경할 수 있으면 좋겠다."
-       }
-      },
-      {
-       "value": "9",
-       "text": {
-        "ko": " 나는 가끔 내 자신이 쓸모없는 사람이라는 느낌이 든다."
-       }
-      },
-      {
-       "value": "10",
-       "text": {
-        "ko": " 나는 때때로 내가 좋지 않은 사람이라고 생각한다."
-       }
-      },
-      {
-       "value": "11",
-       "text": {
-        "ko": " 나를 통제해 줄 사람이 필요하다."
-       }
-      }
-     ],
-     "isAllRowRequired": true
-    }
-   ],
-   "title": {
-    "ko": "임신스트레스 도구"
-   }
-  },
-  {
-   "name": "page5",
-   "elements": [
-    {
-     "type": "matrix",
-     "name": "question18",
-     "title": {
-      "ko": "아래의 문항을 읽고, 지금 남편과의 관계에 대해 생각하시는 것과 일치하는 곳에  선택해주시기  바랍니다."
-     },
-     "isRequired": true,
-     "columns": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "전혀 그렇지 않다"
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "별로 그렇지 않다"
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": "보통이다"
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": "조금 그렇다"
-       }
-      },
-      {
-       "value": "5",
-       "text": {
-        "ko": "매우 그렇다"
-       }
-      }
-     ],
-     "rows": [
-      {
-       "value": "Row 1",
-       "text": {
-        "ko": " 남편과 나는 성적으로 표현을 자유롭게 한다."
-       }
-      },
-      {
-       "value": "Row 2",
-       "text": {
-        "ko": " 남편과 나는 일상 활동과 여가활동을 함께 한다."
-       }
-      },
-      {
-       "value": "Row 3",
-       "text": {
-        "ko": " 남편과 나는 사랑하는 감정을 서로 표현한다."
-       }
-      },
-      {
-       "value": "Row 4",
-       "text": {
-        "ko": " 우리 부부는 서로의 생각이나 느낌을 표현한다."
-       }
-      },
-      {
-       "value": "Row 5",
-       "text": {
-        "ko": " 우리 부부는 의견 차이를 대화로서 해결한다."
-       }
-      },
-      {
-       "value": "Row 6",
-       "text": {
-        "ko": " 우리 부부는 서로의 자존심을 존중해 준다."
-       }
-      },
-      {
-       "value": "Row 7",
-       "text": {
-        "ko": " 우리 부부는 친구나 가족관계를 잘 유지하고 있다."
-       }
-      },
-      {
-       "value": "Row 8",
-       "text": {
-        "ko": " 우리 부부의 결혼 생활은 안정되어 있다. "
-       }
-      }
-     ],
-     "isAllRowRequired": true
-    }
-   ],
-   "title": {
-    "ko": "남편과의 관계측정 도구"
-   }
-  },
-  {
-   "name": "page6",
-   "elements": [
-    {
-     "type": "rating",
-     "name": "question19",
-     "title": {
-      "ko": "현재 남편과의 요즈음 결혼 생활에 대한 귀하의 느낌을 잘 표현하고 있다고 \n  생각하는 숫자에 선택 해주시기 \n바랍니다."
-     },
-     "isRequired": true,
-     "rateMax": 7,
-     "minRateDescription": {
-      "ko": "매우불행하다"
-     },
-     "maxRateDescription": {
-      "ko": "매우 행복하다"
-     }
-    }
-   ],
-   "title": {
-    "ko": "결혼 만족도 측정도구"
-   }
-  },
-  {
-   "name": "page7",
-   "elements": [
-    {
-     "type": "matrix",
-     "name": "question20",
-     "title": {
-      "ko": " 6. 다음은 귀하께서 이번 임신 중에 주위사람들로부터 도움을 얼마나 받고 계신지에 관한 것입니다. 귀하의 의견과 일치되는 번호에 선택해주시기  바랍니다."
-     },
-     "columns": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "매우 불만족"
-       }
-      },
-      "2",
-      "3",
-      "4",
-      "5"
-     ],
-     "rows": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "남편은 나의 임신경험에 동참해 준다."
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": " 남편은 나의 의욕을 돋구어준다."
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": "남편은  내가 고통스러울 때 벗어나도록 도와준다."
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": "남편은  나의 일상생활과 문제들에 관심을 보여준다."
-       }
-      },
-      {
-       "value": "5",
-       "text": {
-        "ko": "남편은  나에게 중요한 행동을 할 때 내 위주로 한다."
-       }
-      },
-      {
-       "value": "6",
-       "text": {
-        "ko": "남편은  나의 사적인 문제를 들어준다."
-       }
-      },
-      {
-       "value": "7",
-       "text": {
-        "ko": "남편은  내가 해 준것에 대해 고마움을 나에게 표현한다."
-       }
-      },
-      {
-       "value": "8",
-       "text": {
-        "ko": "남편은  내가 변덕을 부리더라도 참아준다."
-       }
-      },
-      {
-       "value": "9",
-       "text": {
-        "ko": "남편은  내가 걱정할 때에 진지하게 날 대해 준다."
-       }
-      },
-      {
-       "value": "10",
-       "text": {
-        "ko": "남편은  내가 상황을 분명하게 이해하도록 돕는다."
-       }
-      },
-      {
-       "value": "11",
-       "text": {
-        "ko": "남편은  내가 도움이 필요할 때는 옆에 있도록 힘쓴다. "
-       }
-      }
-     ],
-     "isAllRowRequired": true
-    }
-   ],
-   "title": {
-    "ko": "배우자지지 측정도구"
-   }
-  },
-  {
-   "name": "page8",
-   "elements": [
-    {
-     "type": "matrix",
-     "name": "question21",
-     "title": {
-      "ko": "다음은 귀하께서 이번 임신 동안에 경험한 스트레스에 대한 것입니다. \n  귀하의 임신동안 경험한 스트레스와 일치되는 란을 선택하여 주십시오."
-     },
-     "isRequired": true,
-     "columns": [
-      {
-       "value": "1",
-       "text": {
-        "ko": " 전혀 되지 않는다."
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "약간 된다."
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": "대체로 된다."
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": "심각하게 된다."
-       }
-      }
-     ],
-     "rows": [
-      {
-       "value": "1",
-       "text": {
-        "ko": "경제적인 면 때문에"
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": " 자녀 등 가족 관계 때문에"
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": " 시부모나 친척과의 관계 때문에"
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": " 성생활 때문에"
-       }
-      },
-      {
-       "value": "5",
-       "text": {
-        "ko": " 부부관계 때문에"
-       }
-      },
-      {
-       "value": "6",
-       "text": {
-        "ko": " 주거나 주위 환경(이사포함) 때문에"
-       }
-      },
-      {
-       "value": "7",
-       "text": {
-        "ko": " 감정적 폭력측면 때문에"
-       }
-      },
-      {
-       "value": "8",
-       "text": {
-        "ko": " 육체적 폭력측면 때문에"
-       }
-      },
-      {
-       "value": "9",
-       "text": {
-        "ko": " 사랑하는 사람과 이별하거나 사별 때문에"
-       }
-      },
-      {
-       "value": "10",
-       "text": {
-        "ko": " 술이나 담배, 커피 등 기호식품 때문에"
-       }
-      },
-      {
-       "value": "11",
-       "text": {
-        "ko": " 가사일이나 직장일 때문에"
-       }
-      }
-     ],
-     "isAllRowRequired": true
-    },
-    {
-     "type": "matrix",
-     "name": "question22",
-     "isRequired": true,
-     "columns": [
-      {
-       "value": "Column 1",
-       "text": {
-        "ko": "전혀 아니다."
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": "약간 그렇다."
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": "상당히 그렇다."
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": "매우 그렇다."
-       }
-      }
-     ],
-     "rows": [
-      {
-       "value": "1",
-       "text": {
-        "ko": " 입덧이 있다."
-       }
-      },
-      {
-       "value": "2",
-       "text": {
-        "ko": " 기분이 가라앉는다."
-       }
-      },
-      {
-       "value": "3",
-       "text": {
-        "ko": " 양질의 식사를 한다."
-       }
-      },
-      {
-       "value": "4",
-       "text": {
-        "ko": " 엽산과 철분제를 규칙적으로 복용한다."
-       }
-      },
-      {
-       "value": "5",
-       "text": {
-        "ko": " 태아 기형이 걱정된다."
-       }
-      },
-      {
-       "value": "6",
-       "text": {
-        "ko": " 임신합병증이 생길까 걱정된다."
-       }
-      },
-      {
-       "value": "7",
-       "text": {
-        "ko": " 아기를 잘 돌볼 수 있을지 걱정된다."
-       }
-      },
-      {
-       "value": "8",
-       "text": {
-        "ko": " 엄마가 되는게 부담된다."
-       }
-      },
-      {
-       "value": "9",
-       "text": {
-        "ko": " 임신 후 가족이 나를 배려해 주지 않아 서운하다."
-       }
-      },
-      {
-       "value": "10",
-       "text": {
-        "ko": " 남편이 내 기분을 몰라줘서 서운하다."
-       }
-      },
-      {
-       "value": "11",
-       "text": {
-        "ko": " 산전검사를 선택하기 어렵다."
-       }
-      },
-      {
-       "value": "12",
-       "text": {
-        "ko": " 산전검사 비용이 부담된다."
-       }
-      },
-      {
-       "value": "13",
-       "text": {
-        "ko": " 우리 사회는 아기에게 문제가 생기면 엄마가 주원인이라고 여긴다."
-       }
-      },
-      {
-       "value": "14",
-       "text": {
-        "ko": " 우리사회는 믿고 맡길 보육시설이 부족해서 걱정이다."
-       }
-      }
-     ],
-     "isAllRowRequired": true
-    }
-   ],
-   "title": {
-    "ko": "임신스트레스 측정도구 "
-   }
-  }
- ],
- "showPageNumbers": true,
- "showProgressBar": "top",
- "startSurveyText": {
-  "ko": "설문시작"
- },
- "pagePrevText": {
-  "ko": "이전"
- },
- "pageNextText": {
-  "ko": "다음"
- },
- "completeText": {
-  "ko": "완료"
- }
 }
