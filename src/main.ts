@@ -27,7 +27,7 @@ axios.interceptors.response.use(
             Vue.$cookies.set("token", res.data.token, "1h");
             axios.defaults.headers.common.token = Vue.$cookies.get("token");
         }
-        if (res.data.expired || Vue.$cookies.get("token") == null) {
+        if (res.data.expired) {
             store.commit("signOut");
             Vue.$cookies.remove("token");
             res.data.token = null;
