@@ -69,7 +69,7 @@ router.post('/signin', function(req, res) {
                                 username: rows[0].username,
                                 email: rows[0].email,
                                 role: rows[0].role,
-                                create_time: curTime.getFullYear() + "-" + (month[1] ? month : '0' + month) + "-" + (date[1] ? date : '0' + date) + " " + curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds()
+                                create_time: curTime.getFullYear() + "-" + ("0" + (month + 1)).slice(-2) + "-" + ("0" + date).slice(-2) + " " + ("0" + curTime.getHours()).slice(-2) + ":" + ("0" + curTime.getMinutes()).slice(-2) + ":" + ("0" + curTime.getSeconds()).slice(-2)
                             },
                             db_config.password, {
                                 expiresIn: '1h',
